@@ -111,10 +111,21 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(myIntent);
                               //  startActivity(new Intent(MainActivity.this, Users_ProjectsList.class));
                                 break;
-                          //  case R.id.DoneProject:
-                          //     mDrawerLayout.closeDrawers();
-                           //    startActivity(new Intent(MainActivity.this, DoneProject.class));
-                           //     break;
+                            case R.id.ProjectCompleted:
+                               mDrawerLayout.closeDrawers();
+                               startActivity(new Intent(MainActivity.this, FileProjectCompleted.class));
+                               break;
+
+                            case R.id.ClaimPay:
+                                mDrawerLayout.closeDrawers();
+                                startActivity(new Intent(MainActivity.this, claimPayment.class));
+                                break;
+
+                            case R.id.UserGuide:
+                                mDrawerLayout.closeDrawers();
+                                startActivity(new Intent(MainActivity.this, UserGuide.class));
+                                break;
+
                             case R.id.logout:
                                 mDrawerLayout.closeDrawers();
                                 userLogout();

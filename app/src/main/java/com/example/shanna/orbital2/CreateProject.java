@@ -1,14 +1,11 @@
 package com.example.shanna.orbital2;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,7 +13,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CreateProject extends AppCompatActivity {
@@ -46,7 +42,7 @@ public class CreateProject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_project);
 
-        mEditTextTitle = findViewById(R.id.editTextTitle);
+        mEditTextTitle = findViewById(R.id.editTextPay);
         mEditTextProjectSummary = findViewById(R.id.editTextProjectSummary);
         mEditTextQualifications = findViewById(R.id.editTextQualifications);
         mEditTextResponsibilities = findViewById(R.id.editTextResponsibilities);

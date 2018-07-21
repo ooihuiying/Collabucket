@@ -13,8 +13,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 import java.util.HashMap;
 
 public class make_payment extends AppCompatActivity {
@@ -29,9 +27,10 @@ public class make_payment extends AppCompatActivity {
         setContentView(R.layout.activity_make_payment);
 
         //From AcceptRequest accept button
+        final String RequestSenderID = getIntent().getStringExtra("SenderID");
 
         mBtnTerms = findViewById(R.id.button4);
-        mTextViewprojectTitle= findViewById(R.id.editTextTitle);
+        mTextViewprojectTitle= findViewById(R.id.editTextPay);
         mTextViewamount = findViewById(R.id.editTextPay);
         mBtnpayNow = findViewById(R.id.btnPay);
 
@@ -65,12 +64,13 @@ public class make_payment extends AppCompatActivity {
 
                 DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference()
                         .child("Payment")
-                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child(RequestSenderID)
                         .child(title);
 
                 HashMap<String, String> map = new HashMap<>();
                 map.put("Title", title);
                 map.put("Amount", amount);
+                map.put("PaymentMadeBy", FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                 mUserDatabase.setValue(map);
 

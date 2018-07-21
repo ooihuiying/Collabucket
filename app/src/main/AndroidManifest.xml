@@ -59,18 +59,18 @@
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity="" />
-
-
         <activity
             android:name=".make_payment"
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity="" />
-
         <activity android:name=".Users_ProjectsList" />
         <activity android:name=".FileReport" />
         <activity android:name=".SearchBar" />
-
+        <activity android:name=".FileProjectCompleted" />
+        <activity android:name=".claimPayment" />
+        <activity android:name=".claim_payment_2" />
+        <activity android:name=".UserGuide"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserGuide">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="62dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="User's Guide"
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:layout_width="match_parent" />
+
+            <TextView
+                android:id="@+id/textViewPriorInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Step-by-step guide for Freelancer: "
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="29dp"
+                tools:layout_editor_absoluteY="377dp" />
+
+            <TextView
+                android:id="@+id/GuideHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1) Go to the main page, click on the search bar and key in key words to search for a project. Alternatively, you may choose to navigate to the left drawer 'View All Users' to view the profiles of other users.\n\n
+2) You will see as list of project titles and project summary. To view a project in greater detail, click on the item.\n\n
+3) After reading the project details, you will see two buttons 'View Owner Profile' and 'Continue'. Take note that you should only send collaboration requests to projects which have project status: 'Open'. Project status  'Closed' or 'Completed' means that the project is no longer open for collaboration.\n\n
+4) Click on the 'View Owner Profile' to view the project owner's background and contact details.\n\n
+5) Contact the project owner to indicate your interest and to discuss the project details.\n\n
+6) Only after both parties have agreed the details, you may proceed to click on the 'Continue' button where you will be directed to fill up a Request for Collaboration form.\n\n
+7) A notification will then be sent to the project owner's device where he/she will view the collaboration details and confirm his/her agreement.\n\n
+8) Look out for 2 notifications: \n      a) Notification to inform you that the project owner has accepted your request \n      b)Notification to inform you that project owner has transferred payment and that you can start work.\n\n
+9) Should you receive a notification which informs you that your collaboration request has been rejected by the project owner, you may wish to contact the project owner to renegotiate the terms and repeat step 6 onwards.\n\n
+10) Note that when the project has been completed, you should contact the project owner to let him know. Once both parties are agreeable, the project owner will be required to file for project completion in the left drawer of the app page.\n\n
+11) Following that, you will receive a notification that project owner has filed for project completion.\n\n
+12) In order for you to receive payment for your work, please navigate to the left drawer of the app and search for 'Claim payment for completed project'. Fill up the neccessary details as directed and payment will be directed to you.\n\n
+13) Should you encounter any disputes and problem, you may choose to file a report by navigating to the left drawer of the app.\n\n"
+                android:textColor="@color/fui_bgPhone"
+                android:textStyle="normal"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="53dp" />
+
+
+
+
+            <TextView
+                android:id="@+id/textViewPriorInstruction2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Step-by-step guide for Project Owner: "
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="29dp"
+                tools:layout_editor_absoluteY="377dp" />
+            <TextView
+                android:id="@+id/GuideHeader2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="1) To list a new project, navigate to the left drawer of the app where you will see 'List A New Project'.\n\n
+2) You will then be directed to fill up a form regarding the details of the project.\n\n
+3) Your project will be displayed and all you need to do is wait for a freelancer to contact you via messaging or the email you have provided in your profile.\n\n
+5) Only after you and the freelancer has discussed the project details, the freelancer will fill up a collaboration request from and you will receive a notification informing you of a collaboration request, navigate to the request tab of the main page of the app to view the details.\n\n
+6) From there, you may view the request in detail by clicking on the item. Check the project details carefully.\n\n
+7) If you agree with the details, then click 'Accept And Pay' button. Then you will be directed to a page where you will be required to make payment. The payment will be transferred to Scorpius App Team for safekeeping and it will only be transferred to the freelancer when the project has ended.\n\n
+8) Should you not agree with the project details, you may click 'Reject' and contact the freelancer to further discuss. The freelancer will then need to make another collaboration request on the app.\n\n
+9) Once you have paid, the freelancer will receive a notification on his/her device to inform him/her that he/she can commence work. You may choose to remind the freelancer.\n\n
+10) The freelancer will contact you once he/she has completed the work. Once both parties are agreeable, you will be required to file for project completion in the left drawer of the app page.\n\n
+11) Following that, it will be up to the freelancer to claim his/her pay.\n\n
+12) Should you encounter any disputes and problem, you may choose to file a report by navigating to the left drawer of the app.\n\n"
+                android:textColor="@color/fui_bgPhone"
+                android:textStyle="normal"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="53dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

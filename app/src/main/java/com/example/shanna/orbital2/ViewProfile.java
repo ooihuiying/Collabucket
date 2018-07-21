@@ -46,13 +46,11 @@ public class ViewProfile extends AppCompatActivity {
     private TextView mProfileEducation;
     private TextView mProfileWork;
 
-
     private RatingBar mRating;
     private Button mViewProjects;
 
     //Create storage reference in firebase
     private StorageReference mStorageRef;
-
     private FirebaseUser mCurrentUser;
 
     @Override
@@ -125,22 +123,6 @@ public class ViewProfile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-/*
-        //When user click on website -> Allow user to go to website
-        mProfileWebsite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String website = "http://www.google.com";
-                Uri webaddress = Uri.parse(website);
-                Intent goTo = new Intent(Intent.ACTION_VIEW, webaddress);
-                if (goTo.resolveActivity(getPackageManager()) != null) {
-                    startActivity(goTo);
-                }
-            }
-        });
-*/
-
 
 
     }

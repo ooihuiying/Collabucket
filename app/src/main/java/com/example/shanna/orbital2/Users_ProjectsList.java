@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -117,7 +116,7 @@ public class Users_ProjectsList extends AppCompatActivity {
             mView = itemView;
         }
         public void setTitle(String title){
-            TextView titleView = (TextView) mView.findViewById(R.id.textViewTitle);
+            TextView titleView = (TextView) mView.findViewById(R.id.editTextPay);
             titleView.setText(title);
         }
         public void setProjectSummary(String projectSummary){

@@ -46,7 +46,7 @@
                 android:id="@+id/textViewPriorInstruction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="It is assumed that the requester(freelancer) has contacted you to discuss the project details prior to sending you the collaboration request. If he/she has not, then you may wish to obtain the requester's contact details from the 'View Requester Profile' button below to discuss."
+                android:text="It is assumed that the requester(freelancer) has contacted you to discuss the project details prior to sending you this collaboration request. If he/she has not, then you may wish to obtain the requester's contact details from the 'View Requester Profile' button below to discuss."
                 android:textColor="@color/colorAccent"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="29dp"
@@ -73,7 +73,7 @@
                 android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/textViewTitle"
+                android:id="@+id/editTextPay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

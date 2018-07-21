@@ -33,7 +33,6 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
         String notification_body = remoteMessage.getNotification().getBody();
         String click_action = remoteMessage.getNotification().getClickAction();
 
-
         Intent resultIntent = new Intent(this, MainActivity.class);
         resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 

@@ -1,8 +1,6 @@
 package com.example.shanna.orbital2;
 
-import android.app.PendingIntent;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,14 +17,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static android.app.PendingIntent.getActivity;
-import static android.app.PendingIntent.readPendingIntentOrNullFromParcel;
-import static android.app.PendingIntent.writePendingIntentOrNullToParcel;
 
 public class AcceptRequest extends AppCompatActivity {
 
@@ -57,7 +50,7 @@ public class AcceptRequest extends AppCompatActivity {
         mBufferWait = findViewById(R.id.textViewWait);
         mMaxChanges = findViewById(R.id.textViewChanges);
         mDateOfRequest = findViewById(R.id.textViewFormSubmitDate);
-        mTitle = findViewById(R.id.textViewTitle);
+        mTitle = findViewById(R.id.editTextPay);
 
         mBtnProfileView=findViewById(R.id.buttonViewRequesterProfile);
         mBtnReject = findViewById(R.id.buttonReject);
@@ -116,7 +109,7 @@ public class AcceptRequest extends AppCompatActivity {
 
 
                 //1) Make a new branch under successfulCollaborations -> Same level as Users.
-                mDatabaseClone = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(owner_id)
+                mDatabaseClone = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(partnerID)
                         .child(project_title + partnerID);
 
                 ////////////////1) update the branch called SuccessfulCollaboration -> Same level as Users////
@@ -194,7 +187,7 @@ public class AcceptRequest extends AppCompatActivity {
                         .child(project_title) //project title
                     //    .child(partnerID)
                         .child("ProjectStatus");
-                mOwnerDatabase7.setValue("Closed. I have found a partner to work the project with me.");
+                mOwnerDatabase7.setValue("Closed.");
 
 
                 DatabaseReference mOwnerDatabase8 = FirebaseDatabase.getInstance().getReference().child("Users")
@@ -255,7 +248,7 @@ public class AcceptRequest extends AppCompatActivity {
                                 collabMapRequester.put("Owner", FirebaseAuth.getInstance().getCurrentUser().getUid());
                                 collabMapRequester.put("Partner", partnerID);
                                 collabMapRequester.put("Title", project_title);
-                                collabMapRequester.put("ProjectStatus", "Closed. I am currently working for the project owner.");
+                                collabMapRequester.put("ProjectStatus", "Closed.");
                                 collabMapRequester.put("ProjectSummary", projectSummary);
                                 collabMapRequester.put("ProjectQualifications", projectQualifications);
                                 collabMapRequester.put("ProjectResponsibilities", projectResponsibilities);
@@ -274,6 +267,7 @@ public class AcceptRequest extends AppCompatActivity {
 
                 ///////////////////////////////////////////////////////////////////////////////////////////////////
                 Intent intent = new Intent(AcceptRequest.this, make_payment.class);
+                intent.putExtra("SenderID", partnerID);
                 startActivity(intent);
                 finish();
 
@@ -288,7 +282,7 @@ public class AcceptRequest extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Update a new branch called rejectCollabReq -> Same level as Users
-                DatabaseReference rejectBtn = FirebaseDatabase.getInstance().getReference().child("RejectedCollabReq").child(project_title+partnerID);
+                DatabaseReference rejectBtn = FirebaseDatabase.getInstance().getReference().child("RejectedCollabReq").child(partnerID).child(project_title+partnerID);
 
                 HashMap<String, String> map = new HashMap<>();
 
@@ -298,6 +292,7 @@ public class AcceptRequest extends AppCompatActivity {
                 map.put("ProjectTitle", project_title);
 
                 rejectBtn.setValue(map);
+                Toast.makeText(AcceptRequest.this, "Rejection for collaboration sent!", Toast.LENGTH_LONG).show();
 
                 Intent intent = new Intent(AcceptRequest.this, MainActivity.class);
                 startActivity(intent);

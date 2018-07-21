@@ -7,7 +7,7 @@
         app:showAsAction="always" />
         <item
             android:id="@+id/settings"
-            android:title="Profile Settings"/>
+            android:title="Edit My Profile"/>
         app:showAsAction="always" />
 
         <item
@@ -19,7 +19,7 @@
         <item
             android:id="@+id/New_Project_Listing"
             android:layout_width="match_parent"
-            android:title="List a Project"/>
+            android:title="List A New Project"/>
         app:showAsAction="always" />
 
         <item
@@ -31,16 +31,29 @@
         <item
             android:id="@+id/Report"
             android:layout_width="match_parent"
-            android:title="File a Report"/>
+            android:title="File A Report Of Complaint"/>
         app:showAsAction="always" />
 
-        <!--
+
         <item
-            android:id="@+id/AcceptRequest"
+            android:id="@+id/ProjectCompleted"
             android:layout_width="match_parent"
-            android:title="Accept request -> TO delete"/>
+            android:title="File Project Completion"/>
         app:showAsAction="always" />
-               -->
+
+
+        <item
+            android:id="@+id/ClaimPay"
+            android:layout_width="match_parent"
+            android:title="Claim Payment For Completed Project"/>
+        app:showAsAction="always" />
+
+        <item
+            android:id="@+id/UserGuide"
+            android:layout_width="match_parent"
+            android:title="User Guide"/>
+        app:showAsAction="always" />
+
 
         <item
             android:id="@+id/logout"
