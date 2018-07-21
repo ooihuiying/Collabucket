@@ -83,6 +83,7 @@ public class AcceptRequest extends AppCompatActivity {
                         mMaxChanges.setText(dataSnapshot.child("MaxChanges").getValue().toString());
                         mDateOfRequest.setText(dataSnapshot.child("DateOfRequest").getValue().toString());
                         mTitle.setText(dataSnapshot.child("Title").getValue().toString());
+
                     }
 
                     @Override
@@ -109,10 +110,11 @@ public class AcceptRequest extends AppCompatActivity {
 
 
                 //1) Make a new branch under successfulCollaborations -> Same level as Users.
-                mDatabaseClone = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(partnerID)
+                //partner id is project requester id
+                mDatabaseClone = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborationsNotifications").child(partnerID)
                         .child(project_title + partnerID);
 
-                ////////////////1) update the branch called SuccessfulCollaboration -> Same level as Users////
+                ////////////////1a) Do for SuccessfulCollaborationsNotifications
                 final HashMap<String, Object> collabMapClone = new HashMap<>();
                 collabMapClone.put("Pay", pay);
                 collabMapClone.put("Duration", duration);
@@ -122,7 +124,61 @@ public class AcceptRequest extends AppCompatActivity {
                 collabMapClone.put("Partner", FirebaseAuth.getInstance().getCurrentUser().getUid());
                 collabMapClone.put("SenderFullName", senderFullName);
                 collabMapClone.put("Title", project_title);
-                mDatabaseClone.setValue(collabMapClone);
+
+                //Get owner full name
+                DatabaseReference name = FirebaseDatabase.getInstance().getReference();
+                name.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .addValueEventListener(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                                    String ownerName = dataSnapshot.child("FullName").getValue().toString();
+                                                    collabMapClone.put("OwnerFullName", ownerName);
+                                                    mDatabaseClone.setValue(collabMapClone);
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                                }
+                                            });
+
+                ///1b)update the branch called SuccessfulCollaboration -> Same level as Users//// Updated for both owner and partner so that collab fragment can be seen for both users
+
+                //Get owner full name
+                DatabaseReference name2 = FirebaseDatabase.getInstance().getReference();
+                name2.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                DatabaseReference mDatabaseCollabOwner = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(owner_id)
+                                        .child(project_title+partnerID);
+                                DatabaseReference mDatabaseCollabPartner = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(partnerID)
+                                        .child(project_title+partnerID);
+
+                                final HashMap<String, Object> collabMap = new HashMap<>();
+                                collabMap.put("Pay", pay);
+                                collabMap.put("Duration", duration);
+                                collabMap.put("BufferWait", bufferWait);
+                                collabMap.put("MaxChanges", maxChanges);
+                                collabMap.put("DateOfRequest", requestDate);
+                                collabMap.put("Partner", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                collabMap.put("SenderFullName", senderFullName);
+                                collabMap.put("Title", project_title);
+
+                                String ownerName = dataSnapshot.child("FullName").getValue().toString();
+                                collabMap.put("OwnerFullName", ownerName);
+
+                                mDatabaseCollabOwner.setValue( collabMap);
+                                mDatabaseCollabPartner.setValue( collabMap);
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
 
                 ////////////////////////////////////////////////////////////////////////////////////////
                 //2) Update projects collaboration details for the project owner.

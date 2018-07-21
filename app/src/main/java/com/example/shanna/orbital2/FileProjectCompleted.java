@@ -35,7 +35,7 @@ public class FileProjectCompleted extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_project_completed);
 
-        mProjectTitle = findViewById(R.id.editTextTitle);
+        mProjectTitle = findViewById(R.id.editTextPay);
         mAdditionalPayment = findViewById(R.id.editTextAdditionalPay);
         mBtnDone = findViewById(R.id.buttonDone);
 

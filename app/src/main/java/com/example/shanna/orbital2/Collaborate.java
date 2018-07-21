@@ -1,6 +1,5 @@
 package com.example.shanna.orbital2;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -13,16 +12,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
-import java.io.File;
 import java.util.HashMap;
 
 public class Collaborate extends AppCompatActivity {
@@ -38,6 +33,7 @@ public class Collaborate extends AppCompatActivity {
     private DatabaseReference mDatabaseClone;
     private DatabaseReference mNotificationDatabase;
     private DatabaseReference mSenderFullName;
+    private DatabaseReference mOwnerFullName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,46 +112,66 @@ public class Collaborate extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
 
+
                         //Update AllCollabsRequest branch -> Same level as Users
                         mDatabaseClone = FirebaseDatabase.getInstance().getReference()
                                 .child("AllCollabsReq")  //Another branch of the same level as Users
                                 .child(owner_id)
                                 .child(title + auth.getCurrentUser().getUid());
 
+
+                        //Get the project sender name
                         mSenderFullName = FirebaseDatabase.getInstance().getReference()
                                 .child("Users")
                                 .child(auth.getCurrentUser().getUid());
-                        //.child("FullName");
 
+                        //Get the project owner's name
+                        mOwnerFullName = FirebaseDatabase.getInstance().getReference()
+                                            .child("Users")
+                                            .child(owner_id);
 
-                        ////////Get the value of the sender's name -> Only onDataChange method can obtain value of key from firebase
-                        //We want sender's full name so that we can display on requestFragment for project owner side
-                        mSenderFullName.addValueEventListener(new ValueEventListener() {
+                        //Get the value of project owner name
+                        mOwnerFullName.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                final String ownerName = dataSnapshot.child("FullName").getValue().toString();
 
-                                String senderName = dataSnapshot.child("FullName").getValue().toString();
+                                ////////Get the value of the sender's name -> Only onDataChange method can obtain value of key from firebase
+                                //We want sender's full name so that we can display on requestFragment for project owner side
+                                mSenderFullName.addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                // Toast.makeText(Collaborate.this, senderName, Toast.LENGTH_LONG).show();
+                                        String senderName = dataSnapshot.child("FullName").getValue().toString();
 
-                                final HashMap<String, Object> collabMapClone = new HashMap<>();
+                                        // Toast.makeText(Collaborate.this, senderName, Toast.LENGTH_LONG).show();
 
-                                collabMapClone.put("Pay", pay);
-                                collabMapClone.put("Duration", duration);
-                                collabMapClone.put("BufferWait", wait);
-                                collabMapClone.put("MaxChanges", maxChanges);
-                                collabMapClone.put("DateOfRequest", requestDate);
-                                collabMapClone.put("Partner", auth.getCurrentUser().getUid());
-                                collabMapClone.put("SenderFullName", senderName);
-                                collabMapClone.put("Title", title);
+                                        final HashMap<String, Object> collabMapClone = new HashMap<>();
 
-                                mDatabaseClone.setValue(collabMapClone);
+                                        collabMapClone.put("Pay", pay);
+                                        collabMapClone.put("Duration", duration);
+                                        collabMapClone.put("BufferWait", wait);
+                                        collabMapClone.put("MaxChanges", maxChanges);
+                                        collabMapClone.put("DateOfRequest", requestDate);
+                                        collabMapClone.put("Partner", auth.getCurrentUser().getUid()); //partner is project requester id
+                                        collabMapClone.put("SenderFullName", senderName);
+                                        collabMapClone.put("OwnerFullName", ownerName);
+                                        collabMapClone.put("Title", title);
 
-                                Toast.makeText(Collaborate.this, "Request for collaboration sent!", Toast.LENGTH_LONG).show();
-                                Intent here = new Intent(Collaborate.this, MainActivity.class);
-                                startActivity(here);
-                                finish();
+                                        mDatabaseClone.setValue(collabMapClone);
 
+                                        Toast.makeText(Collaborate.this, "Request for collaboration sent!", Toast.LENGTH_LONG).show();
+                                        Intent here = new Intent(Collaborate.this, MainActivity.class);
+                                        startActivity(here);
+                                        finish();
+
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
 
                             @Override
@@ -163,6 +179,8 @@ public class Collaborate extends AppCompatActivity {
 
                             }
                         });
+
+
                     }
                 }); //update notification branch
             }

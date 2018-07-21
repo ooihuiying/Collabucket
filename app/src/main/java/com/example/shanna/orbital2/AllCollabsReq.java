@@ -7,8 +7,9 @@ public class AllCollabsReq {
     private String BufferWait;
     private String MaxChanges;
     private String DateOfRequest;
-    private String Partner; //ID
+    private String Partner; //ID of project requester
     private String SenderFullName;
+    private String OwnerFullName;
     private String Title;
 
     public AllCollabsReq(){
@@ -17,7 +18,7 @@ public class AllCollabsReq {
 
 
     public AllCollabsReq(String pay, String duration, String bufferWait,
-                         String maxChanges, String dateOfRequest, String partner, String senderFullName, String title) {
+                         String maxChanges, String dateOfRequest, String partner, String senderFullName, String title, String ownerFullName) {
         this.Pay = pay;
         this.Duration = duration;
         this.BufferWait = bufferWait;
@@ -26,6 +27,15 @@ public class AllCollabsReq {
         this.Partner = partner;
         this.SenderFullName = senderFullName;
         this.Title = title;
+        this.OwnerFullName = ownerFullName;
+    }
+
+    public String getOwnerFullName() {
+        return OwnerFullName;
+    }
+
+    public void setOwnerFullName(String ownerFullName) {
+        OwnerFullName = ownerFullName;
     }
 
     public String getPay() {

@@ -70,7 +70,8 @@
         <activity android:name=".FileProjectCompleted" />
         <activity android:name=".claimPayment" />
         <activity android:name=".claim_payment_2" />
-        <activity android:name=".UserGuide"></activity>
+        <activity android:name=".UserGuide" />
+        <activity android:name=".CollabView" />
     </application>
 
 </manifest>

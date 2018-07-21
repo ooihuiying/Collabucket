@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         mTabLayout=(TabLayout)findViewById(R.id.tabLayout);
         frameLayout=(FrameLayout)findViewById(R.id.content_frame);
 
-        fragment = new PartnersFragment();
+        fragment = new CollabsFragment();
         fragmentManager = getSupportFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment);
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()) {
                     case 0:
-                        fragment = new PartnersFragment();
+                        fragment = new CollabsFragment();
                         break;
                     case 1:
                         fragment = new RequestFragment();

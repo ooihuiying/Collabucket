@@ -17,8 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-
 public class claimPayment extends AppCompatActivity {
     private Button mBtnDone;
     private EditText mProjectTitle;
@@ -33,7 +31,7 @@ public class claimPayment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_claim_payment);
 
-        mProjectTitle = findViewById(R.id.editTextTitle);
+        mProjectTitle = findViewById(R.id.editTextPay);
         mBtnDone = findViewById(R.id.buttonDone);
 
         mBtnDone.setOnClickListener(new View.OnClickListener() {

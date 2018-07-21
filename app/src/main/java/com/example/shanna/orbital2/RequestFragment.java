@@ -115,7 +115,7 @@ public class RequestFragment extends Fragment {
                         profileIntent.putExtra("bufferWait", wait);
                         profileIntent.putExtra("maxChanges", maxChanges);
                         profileIntent.putExtra("requestDate", requestDate);
-                        profileIntent.putExtra("partnerID", partner);
+                        profileIntent.putExtra("partnerID", partner); //project requester id
                         profileIntent.putExtra("senderFullName", senderFullName);
                         profileIntent.putExtra("projectTitle", project_title);
                         startActivity(profileIntent);
