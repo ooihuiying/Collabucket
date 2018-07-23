@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#dfc2c2"
     tools:context=".AcceptRequest">
 
     <ScrollView
@@ -15,25 +16,29 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#dfc2c2"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="62dp"
+                android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="ACCEPT/REJECT REQUEST FOR COLLABORATION FORM"
-                android:textStyle="bold"
+                android:text="       COLLABORATION DETAILS"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#6d3434"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,23 +47,24 @@
                 tools:layout_width="match_parent" />
 
 
-            <TextView
-                android:id="@+id/textViewPriorInstruction"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="It is assumed that the requester(freelancer) has contacted you to discuss the project details prior to sending you this collaboration request. If he/she has not, then you may wish to obtain the requester's contact details from the 'View Requester Profile' button below to discuss."
-                android:textColor="@color/colorAccent"
-                android:textStyle="bold"
-                tools:layout_editor_absoluteX="29dp"
-                tools:layout_editor_absoluteY="377dp" />
-
             <Button
                 android:id="@+id/buttonViewRequesterProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#a54343"
                 android:text="View Requester Profile"
                 tools:layout_editor_absoluteX="223dp"
                 tools:layout_editor_absoluteY="466dp" />
+
+            <TextView
+                android:id="@+id/textViewPriorInstruction"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:text="Click to view requester's profile."
+                android:textColor="	#b87373"
+                android:textStyle="italic"
+                tools:layout_editor_absoluteX="200dp"
+                tools:layout_editor_absoluteY="377dp" />
 
 
             <TextView
@@ -67,10 +73,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Project Title:"
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="	#a54343"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="53dp"
-                android:textStyle="bold"/>
+                tools:layout_editor_absoluteX="53dp" />
 
             <TextView
                 android:id="@+id/editTextPay"
@@ -86,34 +93,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Requester(freelancer) submitted this collaboration request form on the date of: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="Collaboration submission date: "
+                android:textColor="	#a54343"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="53dp"
-                android:textStyle="bold"/>
+                tools:layout_editor_absoluteX="53dp" />
 
 
             <TextView
                 android:id="@+id/textViewFormSubmitDate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="42dp"
                 android:text="TextView"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="299dp"
                 tools:layout_height="wrap_content" />
 
 
-
             <TextView
                 android:id="@+id/textViewChangesHeader"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Maximum number of changes you can make during the course of the project, unless agreed by the other party."
+                android:text="Maximum number of request for changes:"
+                android:textColor="	#a54343"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="53dp"
-                android:textColor="@color/fui_bgPhone"
-                android:textStyle="bold"/>
+                tools:layout_editor_absoluteX="53dp" />
 
             <TextView
                 android:id="@+id/textViewChanges"
@@ -129,8 +137,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Minimum pay the requester(freelancer) has to receive:"
-                android:textColor="@color/fui_bgPhone"
+                android:text="Baseline quotation:"
+                android:textColor="	#a54343"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="53dp" />
@@ -149,8 +158,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Agreed project duration:"
-                android:textColor="@color/fui_bgPhone"
+                android:text="Project duration:"
+                android:textColor="	#a54343"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="53dp" />
@@ -168,11 +178,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="During the course of the project, if the requester(freelancer) contacts you to clarify certain matters regarding the project, you will need to respond with the stated number of days below. Otherwise, the other party will have the right to file a report of non-response against you. This also applies the other way round: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="Buffer days wait for response (If not adhered to, the other party will have the right to file a report of non-response): "
+                android:textColor="	#a54343"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:layout_editor_absoluteX="53dp"
-                android:textStyle="bold"/>
+                tools:layout_editor_absoluteX="53dp" />
 
 
             <TextView
@@ -187,8 +198,9 @@
                 android:id="@+id/textViewInstruction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nPlease check if information stated above is as agreed with the requester(freelancer). If you agree with the terms, press 'Accept' and proceed to make payment(base amount) to the app's administrator. Do note that the requester(freelancer) will not be able to start work until you have transferred the payment. We will keep the payment securely with us during the course of the project. Should any dispute occur during the course of the project, please remember to file a report and we will handle it on a case-by-case basis. You may navigate to the FILE A REPORT page on the left drawer of the main page. Should the project terminate without any hiccups, please navigate to the END PROJECT page which is located on the left drawer of the main page and we will then transfer the payment to the requester(freelancer) and make any necessary refunds to you if needed.\n\nOtherwise, if you do not agree with the terms, press 'reject' and contact the requester(freelancer) again to renegotiate the terms. Do note that the requester(freelancer) will then need to resubmit a collaboration request."
-                android:textColor="@color/colorAccent"
+                android:text="\nPlease check if information stated above is as agreed with the requester. If you agree with the terms, press 'Accept' and proceed to make payment(base amount). Do note that the requester will start work upon completion of payment. Should any dispute occur during the course of the project, please file a report and we will handle it on a case-by-case basis. \n\nOtherwise, if you do not agree with the terms, press 'reject' and contact the requester again to renegotiate the terms. Do note that resubmission of a collaboration request is required."
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="29dp"
                 tools:layout_editor_absoluteY="377dp" />
@@ -197,9 +209,10 @@
             <TextView
                 android:id="@+id/textViewInstructionScreenshot"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="55dp"
                 android:text="\nYou are strongly advised to keep a screenshot of this page for future reference."
-                android:textColor="@android:color/holo_orange_dark"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="29dp"
                 tools:layout_editor_absoluteY="377dp" />
@@ -208,14 +221,26 @@
                 android:id="@+id/buttonAccept"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#a54343"
                 android:text="ACCEPT AND PAY"
                 tools:layout_editor_absoluteX="223dp"
                 tools:layout_editor_absoluteY="466dp" />
+
+            <TextView
+                android:id="@+id/textViewBlank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                tools:layout_editor_absoluteX="29dp"
+                tools:layout_editor_absoluteY="377dp" />
 
             <Button
                 android:id="@+id/buttonReject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#a54343"
                 android:text="REJECT"
                 tools:layout_editor_absoluteX="74dp"
                 tools:layout_editor_absoluteY="466dp" />

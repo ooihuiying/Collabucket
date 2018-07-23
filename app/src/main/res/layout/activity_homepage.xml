@@ -20,16 +20,17 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_orange_dark"
+            android:background="	#a54343"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:menu="@menu/menu"/>
+            app:menu="@menu/menu" />
         <!-- Search -->
         <EditText
             android:id="@+id/editTextSearch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_margin="0dp"
-            android:hint="Search for projects" />
+            android:background="#dfc2c2"
+            android:hint="   Search for projects" />
 
 
         <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->
@@ -37,20 +38,24 @@
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="	#b87373">
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#7367">
+                android:background="#7367"
+                app:tabTextColor="@android:color/black">
 
                 <android.support.design.widget.TabItem
+                    android:id="@+id/collab_frag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Collabs" />
 
                 <android.support.design.widget.TabItem
+                    android:id="@+id/request_frag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Requests" />

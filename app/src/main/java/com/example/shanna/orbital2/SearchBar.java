@@ -35,6 +35,9 @@ public class SearchBar extends AppCompatActivity {
     private ArrayList<String> aboutList;
     private ArrayList<String> titleList;
     private ArrayList<String> ownerList;
+    private ArrayList<String> aboutListAll;
+    private ArrayList<String> titleListAll;
+    private ArrayList<String> ownerListAll;
     private SearchAdapter searchAdapter;
 
     private RecyclerView recyclerView;
@@ -54,6 +57,10 @@ public class SearchBar extends AppCompatActivity {
         titleList = new ArrayList<>();
         ownerList = new ArrayList<>();
 
+        aboutListAll = new ArrayList<>();
+        titleListAll = new ArrayList<>();
+        ownerListAll = new ArrayList<>();
+
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -62,6 +69,35 @@ public class SearchBar extends AppCompatActivity {
         // use linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
+
+
+
+        // list ALL projects when search bar is empty
+        FirebaseDatabase.getInstance().getReference().child("Users")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshotAll) {
+                        for (DataSnapshot snapshotAll : dataSnapshotAll.getChildren()) {
+                            Iterable<DataSnapshot> innerDataSnapshotAll = snapshotAll.child("Projects").getChildren();
+
+                            for (DataSnapshot innerSnapAll : innerDataSnapshotAll) {
+                                if (innerSnapAll.child("ProjectStatus").getValue().toString().equals("Open")) {
+                                    aboutListAll.add(innerSnapAll.child("ProjectSummary").getValue().toString());
+                                    titleListAll.add(innerSnapAll.child("Title").getValue().toString());
+                                    ownerListAll.add(innerSnapAll.child("Owner").getValue().toString());
+
+                                    mAdapter = new SearchAdapter(SearchBar.this, aboutListAll, titleListAll, ownerListAll);
+                                    recyclerView.setAdapter(mAdapter);
+                                }
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled (@NonNull DatabaseError databaseError){
+
+                    }
+                });
 
 
         mEditTextSearch.addTextChangedListener(new TextWatcher() {
@@ -84,11 +120,40 @@ public class SearchBar extends AppCompatActivity {
                     mAdapter = new SearchAdapter(SearchBar.this, aboutList, titleList, ownerList);
                     recyclerView.setAdapter(mAdapter);
                 } else {
-                    // clear list every time search bar is emptied
+                    mAdapter = new SearchAdapter(SearchBar.this, aboutListAll, titleListAll, ownerListAll);
+                    recyclerView.setAdapter(mAdapter);
+                    /* clear list every time search bar is emptied
                     aboutList.clear();
                     titleList.clear();
                     ownerList.clear();
                     recyclerView.removeAllViews();
+                     //list ALL projects when search bar is empty
+                    FirebaseDatabase.getInstance().getReference().child("Users")
+                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshotAll) {
+                                    for (DataSnapshot snapshotAll : dataSnapshotAll.getChildren()) {
+                                        Iterable<DataSnapshot> innerDataSnapshotAll = snapshotAll.child("Projects").getChildren();
+
+                                        for (DataSnapshot innerSnapAll : innerDataSnapshotAll) {
+                                            if (innerSnapAll.child("ProjectStatus").getValue().toString().equals("Open")
+                                                    && !ownerList.contains(innerSnapAll.child("Owner").getValue().toString())) {
+                                                aboutList.add(innerSnapAll.child("ProjectSummary").getValue().toString());
+                                                titleList.add(innerSnapAll.child("Title").getValue().toString());
+                                                ownerList.add(innerSnapAll.child("Owner").getValue().toString());
+
+                                                mAdapter = new SearchAdapter(SearchBar.this, aboutList, titleList, ownerList);
+                                                recyclerView.setAdapter(mAdapter);
+                                            }
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled (@NonNull DatabaseError databaseError){
+
+                                }
+                            });*/
                 }
             }
         });
@@ -114,19 +179,22 @@ public class SearchBar extends AppCompatActivity {
                     Iterable<DataSnapshot> innerDataSnapshot = snapshot.child("Projects").getChildren();
 
                     for (DataSnapshot innerSnap : innerDataSnapshot) {
-                        String about = innerSnap.child("ProjectSummary").getValue().toString();
-                        String title = innerSnap.child("Title").getValue().toString();
-                        String owner = innerSnap.child("Owner").getValue().toString();
 
-                        if (about.toLowerCase().contains(s.toLowerCase()) || title.toLowerCase().contains(s.toLowerCase())) {
-                            aboutList.add(about);
-                            titleList.add(title);
-                            ownerList.add(owner);
-                            //Toast.makeText(SearchBar.this, title, Toast.LENGTH_SHORT).show();
-                            //innerCounter++;
+                        if (innerSnap.child("ProjectStatus").getValue().toString().equals("Open")) {
+                            String about = innerSnap.child("ProjectSummary").getValue().toString();
+                            String title = innerSnap.child("Title").getValue().toString();
+                            String owner = innerSnap.child("Owner").getValue().toString();
 
-                            searchAdapter = new SearchAdapter(SearchBar.this, aboutList, titleList, ownerList);
-                            recyclerView.setAdapter(searchAdapter);
+                            if (about.toLowerCase().contains(s.toLowerCase()) || title.toLowerCase().contains(s.toLowerCase())) {
+                                aboutList.add(about);
+                                titleList.add(title);
+                                ownerList.add(owner);
+                                //Toast.makeText(SearchBar.this, title, Toast.LENGTH_SHORT).show();
+                                //innerCounter++;
+
+                                searchAdapter = new SearchAdapter(SearchBar.this, aboutList, titleList, ownerList);
+                                recyclerView.setAdapter(searchAdapter);
+                            }
                         }
                     }
                 }

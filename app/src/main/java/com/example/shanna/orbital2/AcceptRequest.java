@@ -98,7 +98,6 @@ public class AcceptRequest extends AppCompatActivity {
                 Intent intent = new Intent(AcceptRequest.this, ViewProfile.class);
                 intent.putExtra("user_id", partnerID);
                 startActivity(intent);
-                finish();
             }
         });
 
@@ -326,7 +325,6 @@ public class AcceptRequest extends AppCompatActivity {
                 intent.putExtra("SenderID", partnerID);
                 startActivity(intent);
                 finish();
-
 
             }
         });
