@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#dfc2c2"
     tools:context=".Users_Clients">
 
     <!-- We use a Toolbar -->
@@ -13,7 +14,7 @@
         android:layout_height="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:background="#30475b"
+        android:background="	#6d3434"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.7"
@@ -22,12 +23,13 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/clients_list"
-        android:layout_width="match_parent"
+        android:layout_width="371dp"
         android:layout_height="486dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="56dp"
+        android:background="	#dfc2c2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

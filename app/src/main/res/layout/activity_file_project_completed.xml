@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#dfc2c2"
     tools:context=".FileProjectCompleted"
     tools:layout_editor_absoluteY="25dp">
 
@@ -14,6 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="	#dfc2c2"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,8 +30,9 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="FILE FOR PROJECT COMPLETION FORM"
+            android:text="PROJECT COMPLETION FORM"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+            android:textColor="#6d3434"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="\n*Do note that this form is to be completed by the project owner only"
-            android:textColor="@android:color/holo_orange_dark"
+            android:textColor="	#a54343"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="377dp" />
@@ -54,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="\nWe hope you had an enjoyable time completing the project. \nPlease fill the fields below:"
-            android:textColor="@color/colorAccent"
+            android:textColor="	#a54343"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="377dp" />
@@ -65,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Project Title:"
-            android:textColor="@color/fui_bgPhone"
+            android:textColor="	#a54343"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="53dp" />
@@ -76,6 +79,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="project title"
+            android:textColor="	#a54343"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="53dp" />
 
@@ -85,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Enter additional payment to be made to requester(freelancer). Enter null if not applicable:"
-            android:textColor="@color/fui_bgPhone"
+            android:textColor="	#a54343"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="53dp" />
@@ -96,6 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="additional pay"
+            android:textColor="	#a54343"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="53dp" />
 
@@ -104,6 +109,7 @@
             android:id="@+id/buttonDone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="	#a54343"
             android:text="Done"
             tools:layout_editor_absoluteX="223dp"
             tools:layout_editor_absoluteY="466dp" />

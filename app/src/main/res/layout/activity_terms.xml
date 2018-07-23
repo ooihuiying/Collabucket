@@ -9,12 +9,13 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="	#dfc2c2"
             android:orientation="vertical">
 
             <TextView
@@ -23,8 +24,11 @@
                 android:layout_height="53dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:text="TERMS AND CONDITIONS"
+                android:text="  TERMS AND CONDITIONS"
                 android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:textColor="	#6d3434"
+                android:textSize="28sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="30dp" />
@@ -54,6 +58,7 @@
         \n\n 15.\n(Other Terms)\nPayment will be transferred to freelancer 3 days after deadline stated by both parties, if neither party displays breach of contract.
         \n\n
         "
+                android:textColor="	#a54343"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView"
@@ -63,6 +68,7 @@
                 android:id="@+id/button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="	#a54343"
                 android:text="BACK" />
         </LinearLayout>
     </ScrollView>

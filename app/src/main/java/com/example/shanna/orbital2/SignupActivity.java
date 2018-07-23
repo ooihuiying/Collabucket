@@ -205,7 +205,7 @@ public class SignupActivity extends AppCompatActivity {
                                     });
                                     
                                     // Signup successful, go to main activity
-                                    startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                    startActivity(new Intent(SignupActivity.this, UserGuide.class));
                                     // End the activity
                                     finish();
                                 }

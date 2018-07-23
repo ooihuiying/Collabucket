@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#dfc2c2"
     tools:context=".Collaborate">
 
     <ScrollView
@@ -21,6 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="	#dfc2c2"
             android:orientation="vertical">
 
             <TextView
@@ -31,7 +33,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="CREATE PROJECT LISTING"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#6d3434" />
 
 
             <TextView
@@ -39,8 +42,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nProject title: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextPay"
@@ -49,6 +52,7 @@
                 android:ems="10"
                 android:hint="Project title"
                 android:inputType="textLongMessage"
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="46dp" />
 
@@ -58,8 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nToday's date: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextDateOfListing"
@@ -67,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Date of project listing "
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -76,8 +81,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nProject details: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextProjectSummary"
@@ -86,6 +91,7 @@
                 android:ems="10"
                 android:hint="You may wish to give an overview of your company/project."
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -94,8 +100,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nResponsibilities and duties: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextResponsibilities"
@@ -104,6 +110,7 @@
                 android:ems="10"
                 android:hint="You may wish to give an outline of the core duties of the position. Highlight how this position fits into your project/company and some of the job scope."
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -112,8 +119,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nQualifications and skills: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextQualifications"
@@ -122,6 +129,7 @@
                 android:ems="10"
                 android:hint="You may wish to include a list of hard and soft skills, minimum educational level, or previous job experiences required for this position."
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -131,8 +139,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nDuration of project: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextDuration"
@@ -141,6 +149,7 @@
                 android:ems="10"
                 android:hint="(DD/MM/YYYY - DD/MM/YYYY)"
                 android:inputType="date"
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="62dp" />
 
@@ -150,8 +159,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nMinimum amount of pay you will be transferring: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextPay"
@@ -159,6 +168,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Base quotation(Pay)."
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="242dp" />
 
@@ -166,6 +176,7 @@
                 android:id="@+id/buttonPost"
                 android:layout_width="match_parent"
                 android:layout_height="41dp"
+                android:background="#a54343"
                 android:text="POST"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="126dp" />

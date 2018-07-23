@@ -5,6 +5,7 @@
     android:id="@+id/OneCollabReq"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="	#dfc2c2"
     android:visibility="visible">
 
 
@@ -43,7 +44,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_weight="1"
+        android:background="	#dfc2c2"
         android:inputType="textMultiLine"
+        android:textColor="	#a54343"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -87,8 +90,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_weight="1"
+        android:background="	#dfc2c2"
         android:inputType="textMultiLine"
         android:text="@string/display_name"
+        android:textColor="	#a54343"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

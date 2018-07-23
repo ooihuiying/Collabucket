@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#dfc2c2"
     tools:context=".Profile">
 
     <ScrollView
@@ -21,6 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#dfc2c2"
             android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -46,6 +48,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:background="	#a54343"
                 android:text="Upload Picture"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -65,6 +68,7 @@
                 android:ems="10"
                 android:hint="Full Name"
                 android:inputType="textPersonName"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,6 +86,7 @@
                 android:ems="10"
                 android:hint="profession"
                 android:inputType="textMultiLine"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.512"
@@ -99,6 +104,7 @@
                 android:ems="10"
                 android:hint="Freelancer/Client(Hiring freelancers)"
                 android:inputType="textPersonName"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -116,6 +122,7 @@
                 android:ems="10"
                 android:hint="Education"
                 android:inputType="textMultiLine"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.512"
@@ -133,6 +140,7 @@
                 android:ems="10"
                 android:hint="Enter your previous work experience, if any."
                 android:inputType="textMultiLine"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.512"
@@ -151,6 +159,7 @@
                 android:ems="10"
                 android:hint="Enter your skill sets or anything about you"
                 android:inputType="textMultiLine"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.512"
@@ -168,6 +177,7 @@
                 android:ems="10"
                 android:hint="Location"
                 android:inputType="textMultiLine"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.411"
@@ -186,6 +196,7 @@
                 android:ems="10"
                 android:hint="Phone Number"
                 android:inputType="textPersonName"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.411"
@@ -222,6 +233,7 @@
                 android:ems="10"
                 android:hint="website"
                 android:inputType="textMultiLine"
+                android:textColor="	#a54343"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.411"
@@ -237,6 +249,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:background="	#a54343"
                 android:text="Done"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

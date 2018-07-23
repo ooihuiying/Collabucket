@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#dfc2c2"
     tools:context=".UserGuide">
 
     <ScrollView
@@ -21,6 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="	#dfc2c2"
             android:orientation="vertical">
 
             <TextView
@@ -31,8 +33,10 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="User's Guide"
+                android:text="            User's Guide"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#6d3434"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Step-by-step guide for Freelancer: "
-                android:textColor="@color/colorAccent"
+                android:textColor="#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="29dp"
                 tools:layout_editor_absoluteY="377dp" />
@@ -69,23 +73,22 @@
 11) Following that, you will receive a notification that project owner has filed for project completion.\n\n
 12) In order for you to receive payment for your work, please navigate to the left drawer of the app and search for 'Claim payment for completed project'. Fill up the neccessary details as directed and payment will be directed to you.\n\n
 13) Should you encounter any disputes and problem, you may choose to file a report by navigating to the left drawer of the app.\n\n"
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="normal"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="53dp" />
-
-
 
 
             <TextView
                 android:id="@+id/textViewPriorInstruction2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Step-by-step guide for Project Owner: "
-                android:textColor="@color/colorAccent"
+                android:text="Step-by-step guide for Client: "
+                android:textColor="#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="29dp"
                 tools:layout_editor_absoluteY="377dp" />
+
             <TextView
                 android:id="@+id/GuideHeader2"
                 android:layout_width="match_parent"
@@ -102,10 +105,17 @@
 10) The freelancer will contact you once he/she has completed the work. Once both parties are agreeable, you will be required to file for project completion in the left drawer of the app page.\n\n
 11) Following that, it will be up to the freelancer to claim his/her pay.\n\n
 12) Should you encounter any disputes and problem, you may choose to file a report by navigating to the left drawer of the app.\n\n"
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="normal"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="53dp" />
+
+            <Button
+                android:id="@+id/ButtonBegin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#a54343"
+                android:text="BEGIN USING COLABUCKET" />
 
 
         </LinearLayout>

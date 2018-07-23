@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#dfc2c2"
     tools:context=".ProjectDetails">
 
 
@@ -29,20 +30,21 @@
 
             <TextView
                 android:id="@+id/titleHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="318dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:hint="Project Title"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="	#6d3434" />
 
             <TextView
                 android:id="@+id/textViewProjectStatusHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\n\nProject Status: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
             <TextView
@@ -50,6 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Project Status: "
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
             <TextView
@@ -57,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nDate of project listing: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
             <TextView
@@ -66,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Date of project listing "
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -75,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nProject summary: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
             <TextView
@@ -85,6 +89,7 @@
                 android:ems="10"
                 android:hint="Overview of your company/project."
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -93,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nResponsibilities and duties: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
             <TextView
@@ -103,6 +108,7 @@
                 android:ems="10"
                 android:hint="Responsibilities."
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -111,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nQualifications and skills: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
             <TextView
@@ -121,6 +127,7 @@
                 android:ems="10"
                 android:hint="Qualifications"
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -129,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nDuration of project: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
             <TextView
@@ -139,6 +146,7 @@
                 android:ems="10"
                 android:hint="(DD/MM/YYYY - DD/MM/YYYY)"
                 android:inputType="date"
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="62dp" />
 
@@ -148,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nMinimum amount of pay: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
             <TextView
@@ -157,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Base quotation(Pay)."
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="242dp" />
 
@@ -174,7 +183,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.333"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:textColor="@color/colorAccent" />
+                android:textColor="#a54343" />
 
             <Button
                 android:id="@+id/buttonContinue"
@@ -183,6 +192,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
+                android:background="#a54343"
                 android:text="Continue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -194,6 +204,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
+                android:background="#a54343"
                 android:text="view owner profile"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

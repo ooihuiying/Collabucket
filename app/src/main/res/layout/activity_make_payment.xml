@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#dfc2c2"
     tools:context=".make_payment">
 
     <ScrollView
@@ -21,6 +22,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="	#dfc2c2"
             android:orientation="vertical">
 
             <TextView
@@ -31,8 +33,9 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="MAKE PAYMENT"
+                android:text="                MAKE PAYMENT"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#6d3434"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Congratulations! You have just one step away from starting your project. Please read the terms and condition carefully again before making payment. Please ensure that you have communicated the project needs clearly and understand the other party's intentions and background before committing yourself to this collaboration. Proceed only when you are absolutely certain.\n"
-                android:textColor="@color/colorAccent"
+                android:textColor="	#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="58dp" />
@@ -55,7 +58,8 @@
             <Button
                 android:id="@+id/button4"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
+                android:background="	#a54343"
                 android:text="Terms and Conditions"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="189dp" />
@@ -65,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\n\nPlease fill in the fields below."
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/holo_red_dark"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="241dp" />
@@ -75,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nProject title: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="	#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="295dp" />
@@ -87,6 +91,7 @@
                 android:ems="10"
                 android:hint="Project title"
                 android:inputType="textLongMessage"
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="346dp" />
 
@@ -95,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nPayment amount: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="	#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="392dp" />
@@ -107,6 +112,7 @@
                 android:ems="10"
                 android:hint="Payment amount in SGD"
                 android:inputType="textLongMessage"
+                android:textColor="	#a54343"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="442dp" />
 
@@ -115,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nWhen the project has been completed with satisfaction, please navigate to the left drawer DoneProject to register the end of the project. Only then will the payment be transferred to the freelancer."
-                android:textColor="@color/colorAccent"
+                android:textColor="	#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="241dp" />
@@ -125,7 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nYou are strongly advised to keep a screenshot of this page for future reference.\n"
-                android:textColor="@android:color/holo_orange_dark"
+                android:textColor="	#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="29dp"
                 tools:layout_editor_absoluteY="377dp" />
@@ -133,7 +139,8 @@
             <Button
                 android:id="@+id/btnPay"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
+                android:background="	#a54343"
                 android:text="Pay now"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="496dp" />

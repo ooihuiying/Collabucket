@@ -46,7 +46,6 @@ public class ViewProfile extends AppCompatActivity {
     private TextView mProfileEducation;
     private TextView mProfileWork;
 
-    private RatingBar mRating;
     private Button mViewProjects;
 
     //Create storage reference in firebase
@@ -72,7 +71,6 @@ public class ViewProfile extends AppCompatActivity {
         mProfileWebsite =  findViewById(R.id.profileWebsite);
         mProfileEducation = findViewById(R.id.Education);
         mProfileWork = findViewById(R.id.WorkExperience);
-        mRating = findViewById(R.id.profileRating);
         mViewProjects = findViewById(R.id.buttonViewProjects);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();

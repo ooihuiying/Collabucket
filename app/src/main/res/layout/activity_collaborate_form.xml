@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#dfc2c2"
     tools:context=".Collaborate">
 
     <ScrollView
@@ -28,26 +29,27 @@
                 android:id="@+id/header"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:text="COLLABORATION FORM"
+                android:text="          COLLABORATION FORM"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textStyle="bold"/>
+                android:textColor="	#6d3434"
+                android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/textViewPriorInstructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Please contact the project owner before filling up this form. You may view the project owner's profile to obtain the project owner's contact details by clicking on the VIEW OWNER PROFILE button on the project details page. "
-                android:textColor="@color/colorAccent"
+                android:text="Please discuss details with project owner before filling up this form. You may view the project owner's profile to obtain the project owner's contact. "
+                android:textColor="@android:color/holo_red_dark"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewPayHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\nMinimum amount of pay i have to receive:"
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:text="\nBase quotation:"
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextPay"
@@ -55,15 +57,16 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Base quotation"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textColor="	#a54343" />
 
             <TextView
                 android:id="@+id/textViewDuration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nDuration of work: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextDuration"
@@ -71,16 +74,17 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="(DD/MM/YYYY)-(DD/MM/YYYY)"
-                android:inputType="date" />
+                android:inputType="date"
+                android:textColor="	#a54343" />
 
 
             <TextView
                 android:id="@+id/textViewMaxChangesHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\nMaximum number of changes that the project owner can request during the course of project, unless otherwise agreed by me: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:text="\nMaximum request(s) for changes: "
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextMaxChanges"
@@ -88,15 +92,16 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Max changes"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="	#a54343" />
 
             <TextView
                 android:id="@+id/textViewWaitHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\nDuring the course of the project collaboration, should i not receive any response within the number of days as stated below, i will take it as a termination of the contract and i will have the right to file a report of complain for non-response from the other party. Similarly, if i do not respond within the stated number of days, the other party has the right to file a report against me."
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:text="\nBuffer wait for response (days)"
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextWait"
@@ -104,7 +109,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Buffer wait for response (days)"
-                android:inputType="number" />
+                android:inputType="number"
+                android:textColor="	#a54343" />
 
 
             <TextView
@@ -112,8 +118,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nEnter today's date:"
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="	#a54343"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/editTextRequestListingDate"
@@ -121,14 +127,14 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Enter today's date"
-                />
+                android:textColor="	#a54343" />
 
             <TextView
                 android:id="@+id/textViewInstructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nBefore you click COLLABORATE button, please check that you have entered the details correctly."
-                android:textColor="@color/colorAccent"
+                android:textColor="@android:color/holo_red_dark"
                 android:textStyle="bold" />
 
             <TextView
@@ -136,7 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nYou are strongly advised to keep a screenshot of this page for future reference."
-                android:textColor="@android:color/holo_orange_dark"
+                android:textColor="	#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="29dp"
                 tools:layout_editor_absoluteY="377dp" />
@@ -145,6 +151,7 @@
                 android:id="@+id/button2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:background="	#a54343"
                 android:text="Collaborate" />
         </LinearLayout>
     </ScrollView>

@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/single_search"
+    android:background="#e1a7a7"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:visibility="visible">
@@ -19,6 +20,7 @@
         android:padding="10dp"
         android:text="Title"
         android:textStyle="bold"
+        android:textColor="	#a54343"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,6 +36,7 @@
         android:padding="10dp"
         android:text="Description"
         android:textStyle="italic"
+        android:textColor="	#a54343"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_title" />
@@ -49,6 +52,7 @@
         android:padding="10dp"
         android:text="owner id"
         android:textStyle="italic"
+        android:textColor="	#a54343"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

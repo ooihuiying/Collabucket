@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#dfc2c2"
     tools:context=".FileReport">
 
     <TextView
@@ -14,7 +15,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
         android:text="File A Report"
+        android:textColor="	#6d3434"
         android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,6 +30,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="32dp"
         android:text="Please read the Terms and Conditions carefully before proceeding."
+        android:textColor="	#a54343"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +43,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
+        android:background="	#a54343"
         android:text="Terms and Conditions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -53,6 +58,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
         android:text="To file a report, please submit an email to admin@app.com in the format shown below:"
+        android:textColor="#a54343"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +77,7 @@
 2. Full name of project partner\n
 3. Reason for report\n
 4. Actions that administrators should consider taking"
+        android:textColor="	#a54343"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

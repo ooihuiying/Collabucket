@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="	#dfc2c2"
     tools:context=".CollabView">
 
 
@@ -35,21 +36,23 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:hint="Project Title"
-                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large" />
+                android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                android:textColor="#6d3434" />
 
             <TextView
                 android:id="@+id/textViewProjectStatusHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\n\nProject Status: "
-                android:textColor="@color/fui_bgPhone"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#6d3434"/>
 
             <TextView
                 android:id="@+id/textViewProjectStatus"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:hint="Project Status: "
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
@@ -57,15 +60,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nProject Owner:"
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="#6d3434"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewOwner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="\nOwner's name: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
 
@@ -73,24 +76,24 @@
                 android:id="@+id/textViewPartnerHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\nProject freelancer:"
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:text="\nProject Freelancer:"
+                android:textColor="#6d3434"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewPartner"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:hint="\nPartner's name: "
-                android:textColor="@color/fui_bgPhone"
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewDateOfListingHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nDate of project listing: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="\nDate of Project Listing: "
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
 
@@ -100,6 +103,7 @@
                 android:layout_height="32dp"
                 android:ems="10"
                 android:hint="Date of project listing "
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -107,8 +111,8 @@
                 android:id="@+id/textViewDateOfRequestHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nDate of project request: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="\nDate of Project Request: "
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
@@ -116,7 +120,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:ems="10"
-                android:hint="Date of project request"
+                android:hint="Date of Project Request"
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -125,8 +130,8 @@
                 android:id="@+id/textViewProjectSummmaryHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nProject summary: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="\nProject Summary: "
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
@@ -134,8 +139,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Overview of your company/project."
+                android:hint="Overview of Company/Project."
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -143,8 +149,8 @@
                 android:id="@+id/textViewResponsibilitiesHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nResponsibilities and duties: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="\nResponsibilities and Duties: "
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
@@ -154,6 +160,7 @@
                 android:ems="10"
                 android:hint="Responsibilities."
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -161,8 +168,8 @@
                 android:id="@+id/textViewQualificationsHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nQualifications and skills: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="\nQualifications and Skills: "
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
@@ -172,6 +179,7 @@
                 android:ems="10"
                 android:hint="Qualifications"
                 android:inputType="textMultiLine|textLongMessage"
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -179,8 +187,8 @@
                 android:id="@+id/textViewDurationHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nDuration of project: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="\nDuration of Project: "
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
@@ -190,6 +198,7 @@
                 android:ems="10"
                 android:hint="(DD/MM/YYYY - DD/MM/YYYY)"
                 android:inputType="date"
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="62dp" />
 
@@ -198,8 +207,8 @@
                 android:id="@+id/textViewPayHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nMinimum amount of pay: "
-                android:textColor="@color/fui_bgPhone"
+                android:text="\nBase Quotation: "
+                android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
@@ -208,6 +217,7 @@
                 android:layout_height="32dp"
                 android:ems="10"
                 android:hint="Base quotation(Pay)."
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="242dp" />
 
@@ -215,9 +225,9 @@
                 android:id="@+id/textViewMaxChangesHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\nMaximum number of changes that the project owner can request during the course of project, unless otherwise agreed by freelancer: "
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:text="\nMaximum changes that client can request during course of project, unless otherwise agreed by freelancer: "
+                android:textColor="#6d3434"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewMaxChange"
@@ -225,6 +235,7 @@
                 android:layout_height="32dp"
                 android:ems="10"
                 android:hint="Max changes "
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -233,8 +244,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="\nDuring the course of the project collaboration, should i not receive any response within the number of days as stated below, i will take it as a termination of the contract and i will have the right to file a report of complain for non-response from the other party. Similarly, if i do not respond within the stated number of days, the other party has the right to file a report against me."
-                android:textStyle="bold"
-                android:textColor="@color/fui_bgPhone" />
+                android:textColor="#6d3434"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewBufferWait"
@@ -242,6 +253,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Buffer Wait "
+                android:textColor="#6d3434"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -252,6 +264,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
+                android:background="	#a54343"
                 android:padding="10dp"
                 android:text="BACK" />
 

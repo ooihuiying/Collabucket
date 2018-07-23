@@ -5,6 +5,7 @@
     android:id="@+id/single_search"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="	#dfc2c2"
     android:visibility="visible">
 
 
@@ -12,20 +13,22 @@
         android:id="@+id/collab_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Title"
+        android:layout_alignParentStart="true"
         android:padding="10dp"
-        android:textStyle="bold"
-        android:layout_alignParentStart="true"/>
+        android:text="Title"
+        android:textColor="	#a54343"
+        android:textStyle="bold" />
 
 
     <TextView
         android:id="@+id/collab_owner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Partner"
         android:padding="10dp"
+        android:text="Partner"
+        android:textColor="	#a54343"
         android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@id/collab_title"/>
+        app:layout_constraintTop_toBottomOf="@id/collab_title" />
 
     <TextView
         android:id="@+id/collab_partner"
@@ -33,6 +36,7 @@
         android:layout_height="match_parent"
         android:padding="10dp"
         android:text="Date Of Request"
+        android:textColor="	#a54343"
         android:textStyle="italic"
         app:layout_constraintTop_toBottomOf="@id/collab_owner" />
 
