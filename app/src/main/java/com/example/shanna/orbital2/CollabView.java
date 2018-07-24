@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -40,11 +41,13 @@ public class CollabView extends AppCompatActivity {
     private TextView mQualifications;
     private TextView mResponsibilities;
 
+    private TextView mFileReport;
     private TextView mBufferWait;
     private TextView mDuration;
     private TextView mMaxChanges;
     private TextView mPay;
     private Button mBack;
+    private Button mFeedback;
 
     //Create storage reference in firebase
     private StorageReference mStorageRef;
@@ -76,6 +79,8 @@ public class CollabView extends AppCompatActivity {
         mMaxChanges = findViewById(R.id.textViewMaxChange);
         mBufferWait = findViewById(R.id.textViewBufferWait);
         mBack = findViewById(R.id.BackBtn);
+        mFeedback = findViewById(R.id.FeedbackBtn);
+        mFileReport = findViewById(R.id.fileReport);
 
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -110,10 +115,33 @@ public class CollabView extends AppCompatActivity {
                 });
 
 
+        // if status Completed, can leave feedback
+        mFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mStatus.getText().equals("Completed")) {
+                    Intent intent = new Intent(CollabView.this, FeedbackForm.class);
+                    intent.putExtra("user_id", sender_id);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(CollabView.this, "Project not complete!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        mFileReport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CollabView.this, FileReport.class));
             }
         });
     }

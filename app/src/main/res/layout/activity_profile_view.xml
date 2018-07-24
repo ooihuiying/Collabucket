@@ -51,7 +51,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:text="My Name:"
+                android:text="Name:"
                 android:textColor="	#a54343"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +87,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:text="My Profession:"
+                android:text="Profession:"
                 android:textColor="	#a54343"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -159,7 +159,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:text="My Highest Education Level:"
+                android:text="Highest Education Level:"
                 android:textColor="	#a54343"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -195,7 +195,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:text="My Work Experience:"
+                android:text="Work Experience:"
                 android:textColor="	#a54343"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -267,7 +267,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:text="Where i stay:"
+                android:text="Location:"
                 android:textColor="	#a54343"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -304,7 +304,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:text="Contact me at:"
+                android:text="Contact:"
                 android:textColor="	#a54343"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -360,7 +360,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:text="Check out my other works on my website:"
+                android:text="Website:"
                 android:textColor="	#a54343"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -387,6 +387,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/profileAvatar"
                 app:layout_constraintVertical_bias="0.887" />
+
+            <Button
+                android:id="@+id/buttonFeedbacks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#a54343"
+                android:text="View Feedbacks" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <Button
                 android:id="@+id/buttonViewProjects"

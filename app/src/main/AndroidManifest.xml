@@ -72,6 +72,10 @@
         <activity android:name=".claim_payment_2" />
         <activity android:name=".UserGuide" />
         <activity android:name=".CollabView" />
+        <activity android:name=".OwnProjectDetails" />
+        <activity android:name=".UsersAdapter" />
+        <activity android:name=".FeedbackForm" />
+        <activity android:name=".ViewFeedback"></activity>
     </application>
 
 </manifest>

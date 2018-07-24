@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="539dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -19,8 +19,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/header"
@@ -30,7 +32,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:text="PROJECT COMPLETION FORM"
+            android:text="    PROJECT COMPLETION FORM"
             android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
             android:textColor="#6d3434"
             android:textStyle="bold"
@@ -43,20 +45,10 @@
             tools:layout_width="match_parent" />
 
         <TextView
-            android:id="@+id/textViewInstructionScreenshot"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="\n*Do note that this form is to be completed by the project owner only"
-            android:textColor="	#a54343"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="29dp"
-            tools:layout_editor_absoluteY="377dp" />
-
-        <TextView
             android:id="@+id/textViewPriorInstructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="\nWe hope you had an enjoyable time completing the project. \nPlease fill the fields below:"
+            android:text="\nWe hope you had an enjoyable time completing the project. \nPlease fill in the field below:"
             android:textColor="	#a54343"
             android:textStyle="bold"
             tools:layout_editor_absoluteX="29dp"
@@ -73,13 +65,14 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="53dp" />
 
-        <EditText
-            android:id="@+id/editTextPay"
+        <TextView
+            android:id="@+id/textViewTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="project title"
+            android:text="Project Title"
             android:textColor="	#a54343"
+            android:textSize="18sp"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="53dp" />
 
@@ -88,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Enter additional payment to be made to requester(freelancer). Enter null if not applicable:"
+            android:text="Enter additional payment to be made to freelancer. Enter '0' if not applicable:"
             android:textColor="	#a54343"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
@@ -110,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="	#a54343"
-            android:text="Done"
+            android:text="COMPLETE PROJECT"
             tools:layout_editor_absoluteX="223dp"
             tools:layout_editor_absoluteY="466dp" />
 

@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
-
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -96,36 +95,14 @@ public class MainActivity extends AppCompatActivity {
                                 mDrawerLayout.closeDrawers();
                                 startActivity(new Intent(MainActivity.this, Users_Clients.class));
                                 break;
-                            case R.id.New_Project_Listing:
-                                mDrawerLayout.closeDrawers();
-                                startActivity(new Intent(MainActivity.this, CreateProject.class));
-                                break;
                             case R.id.Report:
                                 mDrawerLayout.closeDrawers();
                                 startActivity(new Intent(MainActivity.this, FileReport.class));
                                 break;
-                            case R.id.MyProjects:
-                                mDrawerLayout.closeDrawers();
-                                Intent myIntent = new Intent(MainActivity.this, Users_ProjectsList.class);
-                                myIntent.putExtra("user_id", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                startActivity(myIntent);
-                              //  startActivity(new Intent(MainActivity.this, Users_ProjectsList.class));
-                                break;
-                            case R.id.ProjectCompleted:
-                               mDrawerLayout.closeDrawers();
-                               startActivity(new Intent(MainActivity.this, FileProjectCompleted.class));
-                               break;
-
-                            case R.id.ClaimPay:
-                                mDrawerLayout.closeDrawers();
-                                startActivity(new Intent(MainActivity.this, claimPayment.class));
-                                break;
-
                             case R.id.UserGuide:
                                 mDrawerLayout.closeDrawers();
                                 startActivity(new Intent(MainActivity.this, UserGuide.class));
                                 break;
-
                             case R.id.logout:
                                 mDrawerLayout.closeDrawers();
                                 userLogout();
@@ -188,13 +165,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case (R.id.new_listing):
+                startActivity(new Intent(MainActivity.this, CreateProject.class));
+                return true;
             case android.R.id.home:
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 return true;

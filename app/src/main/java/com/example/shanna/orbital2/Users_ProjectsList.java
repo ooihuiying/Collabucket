@@ -1,6 +1,7 @@
 package com.example.shanna.orbital2;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,12 +11,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Users_ProjectsList extends AppCompatActivity {
 
@@ -76,32 +82,38 @@ public class Users_ProjectsList extends AppCompatActivity {
             }
 
             @Override
-            protected void onBindViewHolder(UserViewHolder holder, int position, Projects model) {
+            protected void onBindViewHolder(final UserViewHolder holder, int position, Projects model) {
                 // Bind the Chat object to the ChatHolder
                 holder.setTitle(model.getTitle());
                 holder.setProjectSummary(model.getProjectSummary());
                 //holder.setUserImage(model.getThumb_image());
 
-
-
                 final String owner_id = model.getOwner();
                 final String title = model.getTitle(); //project title
 
                // Toast.makeText(Users_ProjectsList.this,"For debugging: User id is " + owner_id + " position is "+position, Toast.LENGTH_LONG).show();
-
-                //holder.mView.setOnClickListener(new View.OnClickListener(){
                 holder.mView.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        Intent profileIntent = new Intent(Users_ProjectsList.this, ProjectDetails.class);
-                        //pass user id of the project that the current user clicked
-                        profileIntent.putExtra("Owner", owner_id);
-                        //need to pass the title of project too
-                        profileIntent.putExtra("Title", title);
-                        startActivity(profileIntent);
+                        // if owner is clicking on their own project, display OwnProjectDetails class
+                        if (owner_id.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                            Toast.makeText(Users_ProjectsList.this, "This", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Users_ProjectsList.this, OwnProjectDetails.class);
+                            //pass user id of the project that the current user clicked
+                            intent.putExtra("Owner", owner_id);
+                            //need to pass the title of project too
+                            intent.putExtra("Title", title);
+                            startActivity(intent);
+                        } else { // else will display ProjectDetails class
+                            Intent profileIntent = new Intent(Users_ProjectsList.this, ProjectDetails.class);
+                            //pass user id of the project that the current user clicked
+                            profileIntent.putExtra("Owner", owner_id);
+                            //need to pass the title of project too
+                            profileIntent.putExtra("Title", title);
+                            startActivity(profileIntent);
+                        }
                     }
                 });
-
             }
 
         };
@@ -124,7 +136,4 @@ public class Users_ProjectsList extends AppCompatActivity {
             aboutView.setText(projectSummary);
         }
     }
-
-
-
 }

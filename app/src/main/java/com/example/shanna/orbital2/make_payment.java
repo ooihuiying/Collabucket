@@ -28,11 +28,14 @@ public class make_payment extends AppCompatActivity {
 
         //From AcceptRequest accept button
         final String RequestSenderID = getIntent().getStringExtra("SenderID");
+        final String project_title = getIntent().getStringExtra("project_title");
 
         mBtnTerms = findViewById(R.id.button4);
-        mTextViewprojectTitle= findViewById(R.id.editTextPay);
+        mTextViewprojectTitle= findViewById(R.id.textViewTitle);
         mTextViewamount = findViewById(R.id.editTextPay);
         mBtnpayNow = findViewById(R.id.btnPay);
+
+        mTextViewprojectTitle.setText(project_title);
 
         //If user click on Terms and Condition button
         mBtnTerms.setOnClickListener(new View.OnClickListener() {
@@ -47,14 +50,7 @@ public class make_payment extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                final String title = mTextViewprojectTitle.getText().toString().trim(); //get from textbox
                 final String amount = mTextViewamount.getText().toString().trim();
-
-                // check if changes is empty
-                if (TextUtils.isEmpty(title)) {
-                    Toast.makeText(make_payment.this, "Enter project title", Toast.LENGTH_SHORT).show();
-                    return;
-                }
 
                 // check if quotation is empty
                 if (TextUtils.isEmpty(amount)) {
@@ -65,10 +61,10 @@ public class make_payment extends AppCompatActivity {
                 DatabaseReference mUserDatabase = FirebaseDatabase.getInstance().getReference()
                         .child("Payment")
                         .child(RequestSenderID)
-                        .child(title);
+                        .child(project_title);
 
                 HashMap<String, String> map = new HashMap<>();
-                map.put("Title", title);
+                map.put("Title", project_title);
                 map.put("Amount", amount);
                 map.put("PaymentMadeBy", FirebaseAuth.getInstance().getCurrentUser().getUid());
 

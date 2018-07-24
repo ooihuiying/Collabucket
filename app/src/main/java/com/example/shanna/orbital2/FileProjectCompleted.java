@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,7 +24,7 @@ public class FileProjectCompleted extends AppCompatActivity {
 
 
     private Button mBtnDone;
-    private EditText mProjectTitle;
+    private TextView mProjectTitle;
     private EditText mAdditionalPayment;
 
     DatabaseReference mUserDatabase;
@@ -35,9 +36,13 @@ public class FileProjectCompleted extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_file_project_completed);
 
-        mProjectTitle = findViewById(R.id.editTextPay);
+        mProjectTitle = findViewById(R.id.textViewTitle);
         mAdditionalPayment = findViewById(R.id.editTextAdditionalPay);
         mBtnDone = findViewById(R.id.buttonDone);
+
+        final String project_title = getIntent().getStringExtra("project_title");
+
+        mProjectTitle.setText(project_title);
 
         mBtnDone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,12 +51,11 @@ public class FileProjectCompleted extends AppCompatActivity {
                 //Need to do datachange in order to obtain the values from the key
                 //Only project owner can fill up this form for this to work
 
-                final String title = mProjectTitle.getText().toString().trim(); //get from textbox
                 final String additionalPay = mAdditionalPayment.getText().toString().trim(); //get from textbox
 
                 // check if quotation is empty
-                if (TextUtils.isEmpty(title)) {
-                    Toast.makeText(FileProjectCompleted.this, "Enter project title", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(additionalPay)) {
+                    Toast.makeText(FileProjectCompleted.this, "Please enter additional pay amount.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -59,7 +63,7 @@ public class FileProjectCompleted extends AppCompatActivity {
 
                 mgetDatabase.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .child("Projects")
-                        .child(title)
+                        .child(project_title)
                         .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -70,11 +74,11 @@ public class FileProjectCompleted extends AppCompatActivity {
                                 database = FirebaseDatabase.getInstance().getReference()
                                         .child("CompletedProjects")
                                         .child(partner_id)
-                                        .child(title);
+                                        .child(project_title);
 
 
                                 HashMap<String, String> map = new HashMap<>();
-                                map.put("ProjectTitle", title);
+                                map.put("ProjectTitle", project_title);
                                 map.put("AdditionalPay", additionalPay);
                                 map.put("OwnerID", FirebaseAuth.getInstance().getCurrentUser().getUid());
                                 map.put("SenderID",partner_id);
@@ -85,7 +89,7 @@ public class FileProjectCompleted extends AppCompatActivity {
                                 DatabaseReference updateOwnerProjectStatus =  FirebaseDatabase.getInstance().getReference()
                                         .child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .child("Projects")
-                                        .child(title)
+                                        .child(project_title)
                                         .child("ProjectStatus");
                                 updateOwnerProjectStatus.setValue("Completed");
 
@@ -93,13 +97,14 @@ public class FileProjectCompleted extends AppCompatActivity {
                                 DatabaseReference updatePartnerProjectStatus =  FirebaseDatabase.getInstance().getReference()
                                         .child("Users").child(partner_id)
                                         .child("Projects")
-                                        .child(title)
+                                        .child(project_title)
                                         .child("ProjectStatus");
                                 updatePartnerProjectStatus.setValue("Completed");
 
                                 ///////////////////////////////////////////////////////////////////////////////////////////////////
-                                Toast.makeText(FileProjectCompleted.this, "File for project completion is successful!", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(FileProjectCompleted.this, MainActivity.class);
+                                Toast.makeText(FileProjectCompleted.this, "Congratulations! Project is successfully completed. :)", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(FileProjectCompleted.this, FeedbackForm.class);
+                                intent.putExtra("user_id", partner_id);
                                 startActivity(intent);
                                 finish();
                             }

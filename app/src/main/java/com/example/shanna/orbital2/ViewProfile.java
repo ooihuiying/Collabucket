@@ -47,6 +47,7 @@ public class ViewProfile extends AppCompatActivity {
     private TextView mProfileWork;
 
     private Button mViewProjects;
+    private Button mViewFeedbacks;
 
     //Create storage reference in firebase
     private StorageReference mStorageRef;
@@ -72,6 +73,7 @@ public class ViewProfile extends AppCompatActivity {
         mProfileEducation = findViewById(R.id.Education);
         mProfileWork = findViewById(R.id.WorkExperience);
         mViewProjects = findViewById(R.id.buttonViewProjects);
+        mViewFeedbacks = findViewById(R.id.buttonFeedbacks);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -110,6 +112,12 @@ public class ViewProfile extends AppCompatActivity {
         });
 
 
+        mViewFeedbacks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ViewProfile.this, ViewFeedback.class));
+            }
+        });
 
         //When user click on chat -> Trigger chat activity
         mViewProjects.setOnClickListener(new View.OnClickListener() {
@@ -122,8 +130,5 @@ public class ViewProfile extends AppCompatActivity {
             }
         });
 
-
     }
-
-
 }

@@ -52,7 +52,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#a54343"
-                android:text="View Requester Profile"
+                android:text="View Freelancer Profile"
                 tools:layout_editor_absoluteX="223dp"
                 tools:layout_editor_absoluteY="466dp" />
 
@@ -60,7 +60,8 @@
                 android:id="@+id/textViewPriorInstruction"
                 android:layout_width="match_parent"
                 android:layout_height="46dp"
-                android:text="Click to view requester's profile."
+                android:textAlignment="center"
+                android:text="Click to view freelancer's profile."
                 android:textColor="	#b87373"
                 android:textStyle="italic"
                 tools:layout_editor_absoluteX="200dp"
@@ -74,7 +75,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Project Title:"
                 android:textColor="	#a54343"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="53dp" />
@@ -84,6 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:textSize="15sp"
                 android:text="TextView"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="53dp" />
@@ -93,7 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Collaboration submission date: "
+                android:text="Request submission date: "
                 android:textColor="	#a54343"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -106,6 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:text="TextView"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="299dp"
                 tools:layout_height="wrap_content" />
@@ -116,7 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Maximum number of request for changes:"
+                android:text="Maximum number of request(s) for changes:"
                 android:textColor="	#a54343"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -128,6 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="83dp" />
 
@@ -150,6 +154,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="140dp" />
 
@@ -170,6 +175,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="224dp" />
 
@@ -178,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Buffer days wait for response (If not adhered to, the other party will have the right to file a report of non-response): "
+                android:text="Buffer days wait for response (If not adhered to, the other party will have the right to file a report of non-response. Project MAY be terminated.): "
                 android:textColor="	#a54343"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -191,6 +197,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="53dp"
                 tools:layout_editor_absoluteY="299dp" />
 
@@ -198,7 +205,7 @@
                 android:id="@+id/textViewInstruction"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nPlease check if information stated above is as agreed with the requester. If you agree with the terms, press 'Accept' and proceed to make payment(base amount). Do note that the requester will start work upon completion of payment. Should any dispute occur during the course of the project, please file a report and we will handle it on a case-by-case basis. \n\nOtherwise, if you do not agree with the terms, press 'reject' and contact the requester again to renegotiate the terms. Do note that resubmission of a collaboration request is required."
+                android:text="\nPlease check if information stated above is as agreed with the freelancer. If you agree with the terms, press 'ACCEPT AND PAY' and proceed to make payment(base amount). Do note that the freelancer will start work upon completion of payment. Should any dispute occur during the course of the project, please file a report and we will handle it on a case-by-case basis. \n\nOtherwise, if you do not agree with the terms, press 'REJECT' and contact the freelancer again to renegotiate the terms. Do note that resubmission of a collaboration request is required."
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="12sp"
                 android:textStyle="bold"

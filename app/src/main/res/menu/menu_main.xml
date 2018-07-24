@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
     <item
-        android:id="@+id/logout"
-        android:title="Logout"
-        app:showAsAction="always"
-        />
+        android:id="@+id/new_listing"
+        android:orderInCategory="300"
+        android:title="New Project"
+        android:icon="@android:drawable/ic_menu_edit"
+        app:showAsAction="always"/>
+
 </menu>

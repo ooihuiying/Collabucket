@@ -74,9 +74,9 @@ public class RequestFragment extends Fragment {
 
        // Toast.makeText(getContext(), "id is " + current_id, Toast.LENGTH_SHORT).show();
 
-        FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter<AllCollabsReq, RequestFragment.UserViewHolder>(options) {
+        FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter<AllCollabsReq, RequestFragment.ReqViewHolder>(options) {
             @Override
-            public RequestFragment.UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            public RequestFragment.ReqViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 // Create a new instance of the ViewHolder, in this case we are using a custom
                 // layout called R.layout.message for each item
 
@@ -85,11 +85,11 @@ public class RequestFragment extends Fragment {
                    //     .inflate(R.layout.users_project, parent, false);
 
 
-                return new RequestFragment.UserViewHolder(view);
+                return new RequestFragment.ReqViewHolder(view);
             }
 
             @Override
-            protected void onBindViewHolder(UserViewHolder holder, int position, AllCollabsReq model) {
+            protected void onBindViewHolder(ReqViewHolder holder, int position, AllCollabsReq model) {
                 // Bind the Chat object to the ChatHolder
 
                 holder.setTitle(model.getTitle());
@@ -132,9 +132,9 @@ public class RequestFragment extends Fragment {
         adapter.startListening();
     }
 
-    public static class UserViewHolder extends RecyclerView.ViewHolder {
+    public static class ReqViewHolder extends RecyclerView.ViewHolder {
         View mView;
-        public UserViewHolder(View itemView) {
+        public ReqViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
         }

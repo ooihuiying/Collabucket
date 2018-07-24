@@ -42,7 +42,7 @@ public class CreateProject extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_project);
 
-        mEditTextTitle = findViewById(R.id.editTextPay);
+        mEditTextTitle = findViewById(R.id.editTextTitle);
         mEditTextProjectSummary = findViewById(R.id.editTextProjectSummary);
         mEditTextQualifications = findViewById(R.id.editTextQualifications);
         mEditTextResponsibilities = findViewById(R.id.editTextResponsibilities);
@@ -67,19 +67,19 @@ public class CreateProject extends AppCompatActivity {
                 String current_uid = mCurrentUser.getUid();
                 mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(current_uid).child("Projects").child(title);
 
-                // check if changes is empty
+                // check if title is empty
                 if (TextUtils.isEmpty(title)) {
                     Toast.makeText(CreateProject.this, "Enter project title", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                // check if quotation is empty
+                // check if description is empty
                 if (TextUtils.isEmpty(projectSummary)) {
                     Toast.makeText(CreateProject.this, "Enter short description about project.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                // check if phone number is of valid length
+                // check if project summary is of valid length
                 if (projectSummary.length() > 500) {
                     Toast.makeText(CreateProject.this, "You have exceeded the 500 characters limit for project description.", Toast.LENGTH_LONG).show();
                     return;
@@ -99,7 +99,7 @@ public class CreateProject extends AppCompatActivity {
 
                 // check if phone number is empty
                 if (TextUtils.isEmpty(pay)) {
-                    Toast.makeText(CreateProject.this, "Enter pay range.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProject.this, "Enter base quotation.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -111,7 +111,7 @@ public class CreateProject extends AppCompatActivity {
 
                 // check if date of listing is empty
                 if (TextUtils.isEmpty(dateOfListing)) {
-                    Toast.makeText(CreateProject.this, "Enter Today's date.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateProject.this, "Enter today's date.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

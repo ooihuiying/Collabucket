@@ -323,6 +323,7 @@ public class AcceptRequest extends AppCompatActivity {
                 ///////////////////////////////////////////////////////////////////////////////////////////////////
                 Intent intent = new Intent(AcceptRequest.this, make_payment.class);
                 intent.putExtra("SenderID", partnerID);
+                intent.putExtra("project_title", project_title);
                 startActivity(intent);
                 finish();
 

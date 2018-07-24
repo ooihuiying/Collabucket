@@ -30,28 +30,35 @@
 
             <TextView
                 android:id="@+id/titleHeader"
-                android:layout_width="wrap_content"
+                android:layout_width="122dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:hint="Project Title"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textColor="#6d3434" />
+                android:textColor="#6d3434"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewProjectStatusHeader"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="\n\nProject Status: "
-                android:textStyle="bold"
-                android:textColor="#6d3434"/>
+                android:layout_height="45dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="\nProject Status: "
+                android:textColor="#6d3434"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewProjectStatus"
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Project Status: "
+                android:textSize="15sp"
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
 
@@ -59,16 +66,21 @@
                 android:id="@+id/textViewOwnerHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\nProject Owner:"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="\nProject Client:"
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewOwner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="\nOwner's name: "
+                android:layout_height="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:hint="Client's name: "
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
 
@@ -76,6 +88,8 @@
                 android:id="@+id/textViewPartnerHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nProject Freelancer:"
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -83,15 +97,20 @@
             <TextView
                 android:id="@+id/textViewPartner"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:hint="\nPartner's name: "
+                android:layout_height="33dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:hint="Partner's name: "
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewDateOfListingHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nDate of Project Listing: "
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -100,10 +119,13 @@
             <TextView
                 android:id="@+id/textViewDateOfListing"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="38dp"
                 android:ems="10"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Date of project listing "
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -111,6 +133,8 @@
                 android:id="@+id/textViewDateOfRequestHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nDate of Project Request: "
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -118,10 +142,13 @@
             <TextView
                 android:id="@+id/textViewDateOfRequest"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="40dp"
                 android:ems="10"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Date of Project Request"
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -130,6 +157,8 @@
                 android:id="@+id/textViewProjectSummmaryHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nProject Summary: "
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -139,9 +168,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Overview of Company/Project."
                 android:inputType="textMultiLine|textLongMessage"
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -149,6 +181,8 @@
                 android:id="@+id/textViewResponsibilitiesHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nResponsibilities and Duties: "
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -156,11 +190,14 @@
             <TextView
                 android:id="@+id/textViewResponsibilities"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="33dp"
                 android:ems="10"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Responsibilities."
                 android:inputType="textMultiLine|textLongMessage"
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -168,6 +205,8 @@
                 android:id="@+id/textViewQualificationsHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nQualifications and Skills: "
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -175,11 +214,14 @@
             <TextView
                 android:id="@+id/textViewQualifications"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="34dp"
                 android:ems="10"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Qualifications"
                 android:inputType="textMultiLine|textLongMessage"
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
@@ -187,6 +229,8 @@
                 android:id="@+id/textViewDurationHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nDuration of Project: "
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -196,6 +240,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:ems="10"
+                android:textSize="15sp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="(DD/MM/YYYY - DD/MM/YYYY)"
                 android:inputType="date"
                 android:textColor="#6d3434"
@@ -207,6 +254,8 @@
                 android:id="@+id/textViewPayHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nBase Quotation: "
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -214,10 +263,13 @@
             <TextView
                 android:id="@+id/textViewPay"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="40dp"
                 android:ems="10"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Base quotation(Pay)."
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="242dp" />
 
@@ -225,6 +277,8 @@
                 android:id="@+id/textViewMaxChangesHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nMaximum changes that client can request during course of project, unless otherwise agreed by freelancer: "
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -232,10 +286,13 @@
             <TextView
                 android:id="@+id/textViewMaxChange"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
+                android:layout_height="36dp"
                 android:ems="10"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Max changes "
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -243,6 +300,8 @@
                 android:id="@+id/textViewWaitHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:text="\nDuring the course of the project collaboration, should i not receive any response within the number of days as stated below, i will take it as a termination of the contract and i will have the right to file a report of complain for non-response from the other party. Similarly, if i do not respond within the stated number of days, the other party has the right to file a report against me."
                 android:textColor="#6d3434"
                 android:textStyle="bold" />
@@ -250,10 +309,13 @@
             <TextView
                 android:id="@+id/textViewBufferWait"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="43dp"
                 android:ems="10"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:hint="Buffer Wait "
                 android:textColor="#6d3434"
+                android:textSize="15sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
@@ -267,6 +329,36 @@
                 android:background="	#a54343"
                 android:padding="10dp"
                 android:text="BACK" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/FeedbackBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
+                android:background="	#a54343"
+                android:padding="10dp"
+                android:text="LEAVE FEEDBACK" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/fileReport"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:text="File a report"
+                android:ems="10"
+                android:textColor="#a54343"
+                android:textAlignment="center"/>
+
 
 
         </LinearLayout>

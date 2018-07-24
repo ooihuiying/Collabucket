@@ -35,6 +35,7 @@ import java.util.HashMap;
 public class SignupActivity extends AppCompatActivity {
 
     private EditText mEditTextPw;
+    private EditText mEditTextPw2;
     private EditText mEditTextEmail;
     private EditText mEditTextName;
     private EditText mEditTextPhone;
@@ -58,6 +59,7 @@ public class SignupActivity extends AppCompatActivity {
         //Initialise widgets
         mEditTextEmail = findViewById(R.id.emailEditText);
         mEditTextPw = findViewById(R.id.passwordEditText);
+        mEditTextPw2 = findViewById(R.id.password2EditText);
         mEditTextName = findViewById(R.id.nameEditText);
         mEditTextUsername = findViewById(R.id.usernameEditText);
         mEditTextPhone = findViewById(R.id.phoneEditText);
@@ -90,6 +92,7 @@ public class SignupActivity extends AppCompatActivity {
                 final String phoneNum = mEditTextPhone.getText().toString().trim(); //get from textbox
                 final String email = mEditTextEmail.getText().toString().trim(); //get from textbox
                 final String password = mEditTextPw.getText().toString().trim(); //get from textbox
+                final String password2 = mEditTextPw2.getText().toString().trim(); //get from textbox
                 final String ic = mEditTextIC.getText().toString().trim(); //get from textbox
                 final String education = mEditTextEducation.getText().toString().trim();
                 final String work = mEditTextWorkExperience.getText().toString().trim();
@@ -104,6 +107,12 @@ public class SignupActivity extends AppCompatActivity {
                 // Check if ic is empty
                 if (TextUtils.isEmpty(ic)) {
                     Toast.makeText(SignupActivity.this, "Enter IC/Passport number", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Check if password correct
+                if (!password.equals(password2)) {
+                    Toast.makeText(SignupActivity.this, "Passwords do not match.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -190,6 +199,7 @@ public class SignupActivity extends AppCompatActivity {
                                     userMap.put("Website", "");
                                     userMap.put("UserType", "");
                                     userMap.put("Projects", new ArrayList<String>());
+                                    userMap.put("Feedback", new ArrayList<Object>());
 
                                     mDatabase.setValue(userMap); //putting hashmap into the database for the particular user
 

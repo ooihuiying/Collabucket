@@ -5,7 +5,7 @@
     android:id="@+id/OneUser"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="	#dfc2c2"
+    android:background="#e1a7a7"
     android:visibility="visible">
 
 
@@ -27,7 +27,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="269dp"
+        android:layout_width="252dp"
         android:layout_height="132dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
@@ -66,16 +66,16 @@
         android:layout_height="69dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="112dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:inputType="textMultiLine"
         android:text="TextView"
         android:textColor="	#a54343"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintHorizontal_bias="0.791"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/single_name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

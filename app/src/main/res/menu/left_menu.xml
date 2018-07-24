@@ -13,40 +13,15 @@
         <item
             android:id="@+id/Users_Clients"
             android:layout_width="match_parent"
-            android:title="View All Users"/>
-        app:showAsAction="always" />
-
-        <item
-            android:id="@+id/New_Project_Listing"
-            android:layout_width="match_parent"
-            android:title="List A New Project"/>
-        app:showAsAction="always" />
-
-        <item
-            android:id="@+id/MyProjects"
-            android:layout_width="match_parent"
-            android:title="View My Projects"/>
+            android:title="All Users"/>
         app:showAsAction="always" />
 
         <item
             android:id="@+id/Report"
             android:layout_width="match_parent"
-            android:title="File A Report Of Complaint"/>
+            android:title="File A Report"/>
         app:showAsAction="always" />
 
-
-        <item
-            android:id="@+id/ProjectCompleted"
-            android:layout_width="match_parent"
-            android:title="File Project Completion"/>
-        app:showAsAction="always" />
-
-
-        <item
-            android:id="@+id/ClaimPay"
-            android:layout_width="match_parent"
-            android:title="Claim Payment For Completed Project"/>
-        app:showAsAction="always" />
 
         <item
             android:id="@+id/UserGuide"

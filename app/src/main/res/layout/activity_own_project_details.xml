@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="	#dfc2c2"
-    tools:context=".Collaborate">
+    tools:context=".ProjectDetails">
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,174 +17,188 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="	#dfc2c2"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:id="@+id/titleHeader"
+                android:layout_width="318dp"
+                android:layout_height="50dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="CREATE PROJECT LISTING"
+                android:hint="Project Title"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textColor="#6d3434" />
-
+                android:textColor="	#6d3434" />
 
             <TextView
-                android:id="@+id/textViewProjectTitleHeader"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewProjectStatusHeader"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nProject title: "
-                android:textColor="	#a54343"
+                android:text="\n\nProject Status: "
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextTitle"
+            <TextView
+                android:id="@+id/textViewProjectStatus"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ems="10"
-                android:hint="Project title"
-                android:inputType="textLongMessage"
-                android:textColor="	#a54343"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="46dp" />
-
+                android:layout_height="wrap_content"
+                android:hint="Project Status: "
+                android:textColor="#a54343"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textViewDateOfListingHeader"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nToday's date: "
-                android:textColor="	#a54343"
+                android:text="\nDate of project listing: "
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextDateOfListing"
+            <TextView
+                android:id="@+id/textViewDateOfListing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="date"
-                android:hint="Date of project listing (DD/MM/YYYY) "
-                android:textColor="	#a54343"
+                android:hint="Date of project listing "
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="324dp" />
 
 
             <TextView
                 android:id="@+id/textViewProjectSummmaryHeader"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nProject details: "
-                android:textColor="	#a54343"
+                android:text="\nProject summary: "
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextProjectSummary"
+            <TextView
+                android:id="@+id/textViewProjectSummary"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Overview of your project requirements"
+                android:hint="Overview of your company/project."
                 android:inputType="textMultiLine|textLongMessage"
-                android:textColor="	#a54343"
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
             <TextView
                 android:id="@+id/textViewResponsibilitiesHeader"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nResponsibilities and duties: "
-                android:textColor="	#a54343"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextResponsibilities"
+            <TextView
+                android:id="@+id/textViewResponsibilities"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="You may wish to give an outline of the core duties of the position. Highlight how this position fits into your project/company and some of the job scope."
+                android:hint="Responsibilities."
                 android:inputType="textMultiLine|textLongMessage"
-                android:textColor="	#a54343"
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
             <TextView
                 android:id="@+id/textViewQualificationsHeader"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nQualifications and skills: "
-                android:textColor="	#a54343"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextQualifications"
+            <TextView
+                android:id="@+id/textViewQualifications"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="You may wish to include a list of hard and soft skills, minimum educational level, or previous job experiences required for this position."
+                android:hint="Qualifications"
                 android:inputType="textMultiLine|textLongMessage"
-                android:textColor="	#a54343"
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="91dp" />
 
-
             <TextView
                 android:id="@+id/textViewDurationHeader"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="\nDuration of project: "
-                android:textColor="	#a54343"
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextDuration"
+            <TextView
+                android:id="@+id/textViewDuration"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="(DD/MM/YYYY - DD/MM/YYYY)"
                 android:inputType="date"
-                android:textColor="	#a54343"
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="62dp" />
 
 
             <TextView
                 android:id="@+id/textViewPayHeader"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nBase quotation for services(USD): "
-                android:textColor="	#a54343"
+                android:text="\nMinimum amount of pay: "
+                android:textColor="#a54343"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/editTextPay"
+            <TextView
+                android:id="@+id/textViewPay"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Base quotation (Pay)"
-                android:inputType="number"
-                android:textColor="	#a54343"
+                android:hint="Base quotation(Pay)."
+                android:textColor="#a54343"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="242dp" />
 
-            <Button
-                android:id="@+id/buttonPost"
+
+            <TextView
+                android:id="@+id/textViewInfo"
                 android:layout_width="match_parent"
-                android:layout_height="41dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="\n\nIf you wish to complete the project, \n please COMPLETE PROJECT to finish the collaboration."
+                android:textColor="#a54343"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.333"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:background="#a54343"
-                android:text="POST"
-                tools:layout_editor_absoluteX="8dp"
-                tools:layout_editor_absoluteY="126dp" />
+                android:text="COMPLETE PROJECT"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/buttonViewProfile" />
 
         </LinearLayout>
     </ScrollView>
+
 
 </android.support.constraint.ConstraintLayout>

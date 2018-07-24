@@ -49,7 +49,7 @@
                 android:id="@+id/textViewPriorInstructions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Congratulations! You have just one step away from starting your project. Please read the terms and condition carefully again before making payment. Please ensure that you have communicated the project needs clearly and understand the other party's intentions and background before committing yourself to this collaboration. Proceed only when you are absolutely certain.\n"
+                android:text="Congratulations! You are just one step away from starting your project. Please read the terms and condition carefully again before making payment. Please ensure that you have communicated the project needs clearly and understand the other party's intentions and background before committing yourself to this collaboration. Proceed only when you are absolutely certain.\n"
                 android:textColor="	#a54343"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="0dp"
@@ -68,7 +68,7 @@
                 android:id="@+id/textViewInstructionsPart2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\n\nPlease fill in the fields below."
+                android:text="\n\nPlease fill in the field below."
                 android:textColor="@android:color/holo_red_dark"
                 android:textStyle="bold"
                 tools:layout_editor_absoluteX="16dp"
@@ -84,14 +84,13 @@
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="295dp" />
 
-            <EditText
-                android:id="@+id/editTextTitle"
+            <TextView
+                android:id="@+id/textViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Project title"
-                android:inputType="textLongMessage"
                 android:textColor="	#a54343"
+                android:textSize="18sp"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="346dp" />
 

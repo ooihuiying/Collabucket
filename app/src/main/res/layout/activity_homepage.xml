@@ -9,6 +9,7 @@
     android:fitsSystemWindows="true">
 
     <!-- Your normal content view -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,21 +17,23 @@
 
         <!-- We use a Toolbar so that our drawer can be displayed
              in front of the action bar -->
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
+            app:menu="@menu/menu_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="	#a54343"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:menu="@menu/menu" />
+            android:background="#a54343"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
         <!-- Search -->
+
         <EditText
             android:id="@+id/editTextSearch"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="0dp"
             android:background="#dfc2c2"
-            android:hint="   Search for projects" />
+            android:hint="   Search for projects..." />
 
 
         <!-- Layout to contain contents of main body of screen (drawer will slide over this) -->

@@ -155,7 +155,7 @@
                 android:id="@+id/textViewPayHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="\nMinimum amount of pay: "
+                android:text="\nBase quotation: "
                 android:textColor="#a54343"
                 android:textStyle="bold" />
 
@@ -173,17 +173,17 @@
             <TextView
                 android:id="@+id/textViewInfo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="98dp"
                 android:layout_marginBottom="64dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:text="\n\nPlease contact post owner to discuss project agreements before proceeding to collaboration form."
+                android:text="\n\nPlease contact client to discuss project agreements before proceeding to collaboration form. Contact details can be found at VIEW CLIENT PROFILE."
+                android:textColor="#a54343"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.333"
-                app:layout_constraintStart_toStartOf="parent"
-                android:textColor="#a54343" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/buttonContinue"
@@ -193,7 +193,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:background="#a54343"
-                android:text="Continue"
+                android:text="Proceed to Collaborate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/buttonViewProfile" />
@@ -205,7 +205,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
                 android:background="#a54343"
-                android:text="view owner profile"
+                android:text="view client profile"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 

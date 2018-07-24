@@ -16,11 +16,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.squareup.picasso.Picasso;
 
-
-public class ProjectDetails extends AppCompatActivity {
+public class OwnProjectDetails extends AppCompatActivity {
 
     private TextView mTextViewTitle;
     private TextView mTextViewSummary;
@@ -31,8 +28,7 @@ public class ProjectDetails extends AppCompatActivity {
     private TextView mTextViewDateOfListing;
     private TextView mTextViewProjectStatus;
 
-    private Button mBtnContinue;
-    private Button mBtnViewOwnerProfile;
+    private Button mBtnComplete;
 
     private DatabaseReference mDatabase;
     private FirebaseUser mCurrentUser;
@@ -40,7 +36,7 @@ public class ProjectDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_project_details);
+        setContentView(R.layout.activity_own_project_details);
 
         //Passed from the previous page -> Users_ProjectList
         final String project_title = getIntent().getStringExtra("Title");
@@ -54,8 +50,7 @@ public class ProjectDetails extends AppCompatActivity {
         mTextViewDuration = findViewById(R.id.textViewDuration);
         mTextViewDateOfListing = findViewById(R.id.textViewDateOfListing);
         mTextViewProjectStatus = findViewById(R.id.textViewProjectStatus);
-        mBtnContinue = findViewById(R.id.buttonContinue);
-        mBtnViewOwnerProfile = findViewById(R.id.buttonViewProfile);
+        mBtnComplete = findViewById(R.id.buttonComplete);
 
 
         //Retrieve firebase database for the project from the project owner's profile
@@ -81,6 +76,7 @@ public class ProjectDetails extends AppCompatActivity {
                 mTextViewDuration.setText(dataSnapshot.child("Duration").getValue().toString());
                 mTextViewDateOfListing.setText(dataSnapshot.child("DateOfListing").getValue().toString());
                 mTextViewProjectStatus.setText(dataSnapshot.child("ProjectStatus").getValue().toString());
+                final String status = dataSnapshot.child("ProjectStatus").getValue().toString();
             }
 
             @Override
@@ -90,32 +86,23 @@ public class ProjectDetails extends AppCompatActivity {
         });
 
 
-        //when user clicks collaborate, bring user to collaborate form
-        mBtnContinue.setOnClickListener(new View.OnClickListener() {
-            @Override
+        //when user view project owner's profile, bring user to the profile
+        mBtnComplete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                //first set the value inside the text boxes to contain information that was set previously by the project owner
-                mDatabase.child("Users").child(project_owner_id).child("Projects").child(project_title).addValueEventListener(new ValueEventListener() {
-
+                mDatabase.child("Users")
+                        .child(project_owner_id)
+                        .child("Projects")
+                        .child(project_title).addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                        mTextViewTitle.setText(dataSnapshot.child("Title").getValue().toString());
-                        mTextViewSummary.setText(dataSnapshot.child("ProjectSummary").getValue().toString());
-                        mTextViewQualifications.setText(dataSnapshot.child("ProjectQualifications").getValue().toString());
-                        mTextViewResponsibilities.setText(dataSnapshot.child("ProjectResponsibilities").getValue().toString());
-                        mTextViewPay.setText(dataSnapshot.child("Pay").getValue().toString());
-                        mTextViewDuration.setText(dataSnapshot.child("Duration").getValue().toString());
-                        mTextViewDateOfListing.setText(dataSnapshot.child("DateOfListing").getValue().toString());
-                        mTextViewProjectStatus.setText(dataSnapshot.child("ProjectStatus").getValue().toString());
-
-                        if (dataSnapshot.child("ProjectStatus").getValue().toString().equals("Completed")) {
-                            Toast.makeText(ProjectDetails.this, "Project is already completed.", Toast.LENGTH_SHORT).show();
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshotCheck) {
+                        if (dataSnapshotCheck.child("ProjectStatus").getValue().toString().equals("Completed")) {
+                            Toast.makeText(OwnProjectDetails.this, "Project not valid for completion.", Toast.LENGTH_LONG).show();
                         } else {
-                            Intent intent = new Intent(ProjectDetails.this, Collaborate.class);
-                            intent.putExtra("Owner", project_owner_id);
-                            intent.putExtra("Title", dataSnapshot.child("Title").getValue().toString());
+                            Intent intent = new Intent(OwnProjectDetails.this, FileProjectCompleted.class);
+                            intent.putExtra("project_title", project_title);
                             startActivity(intent);
+                            // End the activity
+                            finish();
                         }
                     }
 
@@ -124,23 +111,10 @@ public class ProjectDetails extends AppCompatActivity {
 
                     }
                 });
-
-            }
-        });
-
-        //when user view project owner's profile, bring user to the profile
-        mBtnViewOwnerProfile.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(ProjectDetails.this, ViewProfile.class);
-                intent.putExtra("user_id", project_owner_id);
-                startActivity(intent);
-                // End the activity
-                finish();
             }
 
         });
 
 
     }
-
 }

@@ -4,24 +4,35 @@ package com.example.shanna.orbital2;
 //Note that load thumb_image doesn't work. Currently loading image instead of thumb_image.
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class Users_Clients extends AppCompatActivity {
 
@@ -29,103 +40,148 @@ public class Users_Clients extends AppCompatActivity {
     private RecyclerView mClientsList;
     private DatabaseReference mUsersDatabase;
 
+    private EditText mEditTextSearch;
+
+    private DatabaseReference mDatabaseRef;
+    private FirebaseUser firebaseUser;
+    private ArrayList<String> nameList;
+    private ArrayList<String> aboutList;
+    private ArrayList<String> iconList;
+    private ArrayList<String> ownerList;
+    private ArrayList<String> aboutListAll;
+    private ArrayList<String> nameListAll;
+    private ArrayList<String> iconListAll;
+    private ArrayList<String> ownerListAll;
+    private UsersAdapter usersAdapter;
+
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users__clients);
 
-        mToolbar = (Toolbar) findViewById(R.id.toolbar_projects);
-        setSupportActionBar(mToolbar);
-        getSupportActionBar().setTitle("All Users");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mEditTextSearch = findViewById(R.id.searchUsers);
+        recyclerView = findViewById(R.id.clients_list);
 
-        mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
+        aboutList = new ArrayList<>();
+        nameList = new ArrayList<>();
+        iconList = new ArrayList<>();
+        ownerList = new ArrayList<>();
 
-        mClientsList = (RecyclerView)findViewById(R.id.clients_list);
-        mClientsList.setHasFixedSize(true);
-        mClientsList.setLayoutManager(new LinearLayoutManager(this));
-    }
+        aboutListAll = new ArrayList<>();
+        nameListAll = new ArrayList<>();
+        iconListAll = new ArrayList<>();
+        ownerListAll = new ArrayList<>();
+
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        recyclerView.setHasFixedSize(true);
+
+        // use linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(mLayoutManager);
 
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        startListening();
-
-    }
-    public void startListening(){
-        Query query = FirebaseDatabase.getInstance()
-                .getReference()
-                .child("Users");
-
-        FirebaseRecyclerOptions<Users> options =
-                new FirebaseRecyclerOptions.Builder<Users>()
-                        .setQuery(query, Users.class)
-                        .build();
-
-        FirebaseRecyclerAdapter adapter = new FirebaseRecyclerAdapter<Users, UserViewHolder>(options) {
-            @Override
-            public UserViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-                // Create a new instance of the ViewHolder, in this case we are using a custom
-                // layout called R.layout.message for each item
-
-                View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.activity_users, parent, false);
-
-                return new UserViewHolder(view);
-            }
-
-            @Override
-            protected void onBindViewHolder(UserViewHolder holder, int position, Users model) {
-                // Bind the Chat object to the ChatHolder
-                holder.setName(model.getFullName());
-                holder.setDescription(model.getDescription());
-               // holder.setUserImage(model.getThumb_image());
-                holder.setUserImage(model.getImage());
-
-                final String user_id = getRef(position).getKey();
-
-              //  Toast.makeText(Users_Clients.this,"For debugging: User id is " + user_id + " position is "+position, Toast.LENGTH_LONG).show();
-
-                holder.mView.setOnClickListener(new View.OnClickListener(){
+        // list ALL projects when search bar is empty
+        FirebaseDatabase.getInstance().getReference().child("Users")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onClick(View v) {
-                        Intent profileIntent = new Intent(Users_Clients.this, ViewProfile.class);
-                        profileIntent.putExtra("user_id", user_id);
-                        startActivity(profileIntent);
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshotAll) {
+                        for (DataSnapshot snapshotAll : dataSnapshotAll.getChildren()) {
+
+                            aboutListAll.add(snapshotAll.child("Description").getValue().toString());
+                            nameListAll.add(snapshotAll.child("FullName").getValue().toString());
+                            iconListAll.add(snapshotAll.child("Image").getValue().toString());
+                            ownerListAll.add(snapshotAll.getKey());
+
+                            mAdapter = new UsersAdapter(Users_Clients.this, aboutListAll, nameListAll, iconListAll, ownerListAll);
+                            recyclerView.setAdapter(mAdapter);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled (@NonNull DatabaseError databaseError){
+
                     }
                 });
 
+
+        mEditTextSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
             }
 
-        };
-        mClientsList.setAdapter(adapter);
-        adapter.startListening();
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                if (!editable.toString().isEmpty()) {
+                    setUpAdapter(editable.toString());
+                    // specify adapter
+                    mAdapter = new UsersAdapter(Users_Clients.this, aboutList, nameList, iconList, ownerList);
+                    recyclerView.setAdapter(mAdapter);
+                } else {
+                    mAdapter = new UsersAdapter(Users_Clients.this, aboutListAll, nameListAll, iconListAll, ownerListAll);
+                    recyclerView.setAdapter(mAdapter);
+                }
+            }
+        });
     }
 
-    public static class UserViewHolder extends RecyclerView.ViewHolder {
-        View mView;
-        public UserViewHolder(View itemView) {
-            super(itemView);
-            mView = itemView;
-        }
-        public void setName(String name){
-            TextView userNameView = (TextView) mView.findViewById(R.id.single_name);
-            userNameView.setText(name);
-        }
-        public void setDescription(String description){
-            TextView userDescription = (TextView) mView.findViewById(R.id.single_description);
-            userDescription.setText(description);
-        }
-        //  public void setUserImage(String thumb_image) {
-        public void setUserImage(String Image) {
-            ImageView userImageView = mView.findViewById(R.id.single_image);
+    private void setUpAdapter(final String s) {
+        // fill up lists with needed data
+        final DatabaseReference mRef;
+        mRef = FirebaseDatabase.getInstance().getReference().child("Users");
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // clear list for every new search (database is async)
+                aboutList.clear();
+                nameList.clear();
+                iconList.clear();
+                ownerList.clear();
+                recyclerView.removeAllViews();
 
-            //The commented code below works to upload an image...
-           // Picasso.get().load("https://i.imgur.com/tGbaZCY.jpg").placeholder(R.drawable.spaceman_1x).into(userImageView);
+                //final int counter = 0;
+                //Toast.makeText(SearchBar.this, s, Toast.LENGTH_SHORT).show();
 
-            Picasso.get().load(Image).placeholder(R.drawable.spaceman_1x).into(userImageView);
-        }
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String about = snapshot.child("Description").getValue().toString();
+                    String name = snapshot.child("FullName").getValue().toString();
+                    String icon = snapshot.child("Image").getValue().toString();
+                    String owner = snapshot.getKey();
+
+                            if (about.toLowerCase().contains(s.toLowerCase()) || name.toLowerCase().contains(s.toLowerCase())) {
+                                aboutList.add(about);
+                                nameList.add(name);
+                                iconList.add(icon);
+                                ownerList.add(owner);
+                                //Toast.makeText(SearchBar.this, title, Toast.LENGTH_SHORT).show();
+                                //innerCounter++;
+
+                                usersAdapter = new UsersAdapter(Users_Clients.this, aboutList, nameList, iconList, ownerList);
+                                recyclerView.setAdapter(usersAdapter);
+                            }
+                }
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
 

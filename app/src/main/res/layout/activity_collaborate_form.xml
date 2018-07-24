@@ -133,7 +133,7 @@
                 android:id="@+id/textViewInstructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="\nBefore you click COLLABORATE button, please check that you have entered the details correctly."
+                android:text="\nBefore you COLLABORATE, please check that you have entered the details correctly."
                 android:textColor="@android:color/holo_red_dark"
                 android:textStyle="bold" />
 
@@ -143,7 +143,7 @@
                 android:layout_height="wrap_content"
                 android:text="\nYou are strongly advised to keep a screenshot of this page for future reference."
                 android:textColor="	#a54343"
-                android:textStyle="bold"
+                android:textStyle="italic"
                 tools:layout_editor_absoluteX="29dp"
                 tools:layout_editor_absoluteY="377dp" />
 

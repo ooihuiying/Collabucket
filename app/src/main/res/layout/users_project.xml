@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="	#e1a7a7"
     android:visibility="visible"
     tools:layout_height="wrap_content">
 
@@ -17,6 +18,7 @@
         android:layout_marginTop="16dp"
         android:inputType="textMultiLine"
         android:text="TextView"
+        android:textColor="	#a54343"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +34,7 @@
         android:layout_marginTop="8dp"
         android:inputType="textMultiLine"
         android:text="TextView"
+        android:textColor="	#a54343"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
