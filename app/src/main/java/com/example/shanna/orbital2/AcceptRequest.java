@@ -325,7 +325,7 @@ public class AcceptRequest extends AppCompatActivity {
                 intent.putExtra("SenderID", partnerID);
                 intent.putExtra("project_title", project_title);
                 startActivity(intent);
-                finish();
+                //finish();
 
             }
         });

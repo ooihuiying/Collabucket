@@ -60,7 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="1) Go to the main page, click on the search bar and key in key words to search for a project. Alternatively, you may choose to navigate to the left drawer 'View All Users' to view and search for the profiles of other users.\n\n
+                android:text="1) Go to the main page, click on the search bar and key in the key words to search for a project. Alternatively, you may choose to navigate to the left drawer 'View All Users' to view and search for the profiles of other users.\n\n
 2) You will see a list of project titles and project summary. To view a project in greater detail, tap on the listing.\n\n
 3) After reading the project details, you will see two buttons 'View Client Profile' and 'Proceed to Collaborate'. Take note that you would only be able to send collaboration requests to projects which have project status: 'Open'. Project status 'Completed' means that the project is no longer open for collaboration.\n\n
 4) Click on the 'View Client Profile' to view the project client's information and contact details.\n\n
@@ -71,9 +71,11 @@
 9) Should you receive a notification which informs you that your collaboration request has been rejected by the project owner, you may wish to contact the project owner to renegotiate the terms and repeat step 6 onwards.\n\n
 10) Upon agreement on completion of the project from both parties, the project owner (client) close the project listing to status 'Complete'.\n\n
 11) Following that, you will receive a notification that project owner has filed for project completion.\n\n
-12) In order for you to receive payment for your work, please navigate to the left drawer of the app and search for 'Claim payment for completed project'. Fill up the neccessary details as directed and payment will be directed to you.\n\n
-13) Should you encounter any disputes and problem, you may choose to file a report by navigating to the left drawer of the app.\n\n"
-                android:textColor="#a54343"
+12) Upon completion of project, the project owner will be required to file for project completion and payment would be made.\n\n
+13) You are encouraged to leave feedback after the completion of a project.\n\n
+14) Should you encounter any disputes and problem, you may choose to file a report by navigating to the left drawer of the app or simply by clicking on the project under the collaboration tab and you will see an option for file a report at the end of the page.\n\n"
+
+                android:textColor="@color/browser_actions_text_color"
                 android:textStyle="normal"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="53dp" />
@@ -104,8 +106,9 @@
 9) Once you have transferred the funds, the freelancer will receive a notification to inform him/her that he/she can commence work. You may choose to remind the freelancer privately as well.\n\n
 10) The freelancer will contact you once he/she has completed the work. Once both parties are agreeable, you will be required to close the project by selecting 'Complete Project' on your project listing.\n\n
 11) Following that, it will be up to the freelancer to claim his/her pay.\n\n
-12) Should you encounter any disputes and problem, you may choose to file a report by navigating to the left drawer of the app.\n\n"
-                android:textColor="#a54343"
+12) You are encouraged to leave feedback after the completion of a project.\n\n
+13) Should you encounter any disputes and problem, you may choose to file a report by navigating to the left drawer of the app or simply by clicking on the project under the collaboration tab where you will see an option for file a report at the end of the page.\n\n"
+                android:textColor="@color/browser_actions_text_color"
                 android:textStyle="normal"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="53dp" />

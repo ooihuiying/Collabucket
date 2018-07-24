@@ -34,7 +34,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
             super(itemView);
             about = (TextView) itemView.findViewById(R.id.search_about);
             title = (TextView) itemView.findViewById(R.id.search_title);
-            owner = (TextView) itemView.findViewById(R.id.search_owner);
+           // owner = (TextView) itemView.findViewById(R.id.search_owner);
         }
     }
 
@@ -62,7 +62,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
     public void onBindViewHolder(@NonNull SearchViewHolder holder, int position) {
         holder.title.setText(titleList.get(position));
         holder.about.setText(aboutList.get(position));
-        holder.owner.setText(ownerList.get(position));
+        //holder.owner.setText(ownerList.get(position));
 
         //if got time, can look into loading images here.
 

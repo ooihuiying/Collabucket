@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-        //Tabs -> Partners, Requests
+        //Tabs -> Collabs, Requests
 
         mTabLayout=(TabLayout)findViewById(R.id.tabLayout);
         frameLayout=(FrameLayout)findViewById(R.id.content_frame);

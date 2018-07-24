@@ -37,7 +37,7 @@
                 android:layout_marginTop="8dp"
                 android:hint="Project Title"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textColor="	#6d3434" />
+                android:textColor="#6d3434" />
 
             <TextView
                 android:id="@+id/textViewProjectStatusHeader"

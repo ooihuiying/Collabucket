@@ -41,10 +41,7 @@ public class CollabsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.activity_collabs_fragment, container, false);
-        // View view = inflater.inflate(R.layout.activity_users__projects_list, container, false);
-
         mCollabList = (RecyclerView) view.findViewById(R.id.Collabs_listView);
-        // mSenderList = (RecyclerView) view.findViewById(R.id.projects_list);
         mCollabList.setHasFixedSize(true);
         current_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         mCollabList.setLayoutManager(new LinearLayoutManager(getContext()));

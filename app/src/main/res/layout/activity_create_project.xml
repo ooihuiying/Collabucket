@@ -34,7 +34,8 @@
                 android:layout_marginTop="8dp"
                 android:text="CREATE PROJECT LISTING"
                 android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
-                android:textColor="#6d3434" />
+                android:textColor="#6d3434"
+                android:textStyle="bold" />
 
 
             <TextView

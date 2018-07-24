@@ -20,7 +20,7 @@ public class UserGuide extends AppCompatActivity {
         mButtonBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Signup successful, go to main activity
+                // Signup successful, go to user guide
                 startActivity(new Intent(UserGuide.this, MainActivity.class));
                 // End the activity
                 finish();

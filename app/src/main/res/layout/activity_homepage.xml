@@ -42,7 +42,7 @@
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="	#b87373">
+            android:background="#e1a7a7">
 
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabLayout"
@@ -79,7 +79,7 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/menu_header"
         app:itemBackground="@android:color/background_light"
-        app:itemTextColor="@android:color/holo_blue_dark"
+        app:itemTextColor="#a54343"
         app:menu="@menu/left_menu">
 
     </android.support.design.widget.NavigationView>
