@@ -33,10 +33,13 @@
         android:id="@+id/collab_partner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
         android:padding="10dp"
         android:text="Date Of Request"
         android:textColor="@color/browser_actions_text_color"
         android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@id/collab_owner" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/collab_owner"
+        tools:layout_height="wrap_content" />
 
 </android.support.constraint.ConstraintLayout>

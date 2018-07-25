@@ -59,11 +59,13 @@ public class CollabView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collab_view);
 
+        //from collabsfragment
         final String current_id = FirebaseAuth.getInstance().getCurrentUser().getUid();
         final String project_title = getIntent().getStringExtra("project_title");
-        final String sender_id = getIntent().getStringExtra("SenderID");
+        final String partner_id = getIntent().getStringExtra("PartnerID");
         final String sender_name = getIntent().getStringExtra("SenderName");
         final String owner_name = getIntent().getStringExtra("OwnerName");
+        final String owner_id = getIntent().getStringExtra("OwnerID");
 
         mTitle = findViewById(R.id.titleHeader);
         mStatus = findViewById(R.id.textViewProjectStatus);
@@ -89,7 +91,7 @@ public class CollabView extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
         //first set the value inside the text boxes to contain information that was set previously
-        mDatabase.child("Users").child(sender_id).child("Projects").child(project_title)
+        mDatabase.child("Users").child(partner_id).child("Projects").child(project_title)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -120,10 +122,23 @@ public class CollabView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (mStatus.getText().equals("Completed")) {
-                    Intent intent = new Intent(CollabView.this, FeedbackForm.class);
-                    intent.putExtra("user_id", sender_id);
-                    startActivity(intent);
-                    finish();
+
+                //    Toast.makeText(CollabView.this, current_id, Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(CollabView.this, owner_id, Toast.LENGTH_LONG).show();
+
+                        if(current_id.equals(partner_id)) {
+                            Intent intent = new Intent(CollabView.this, FeedbackForm.class);
+                            intent.putExtra("user_id", owner_id);
+                            startActivity(intent);
+                            finish();
+                        }
+                        else if(current_id.equals(owner_id)){
+                            Intent intent = new Intent(CollabView.this, FeedbackForm.class);
+                            intent.putExtra("user_id", partner_id);
+                            startActivity(intent);
+                            finish();
+                        }
+
                 } else {
                     Toast.makeText(CollabView.this, "Project not complete!", Toast.LENGTH_LONG).show();
                 }

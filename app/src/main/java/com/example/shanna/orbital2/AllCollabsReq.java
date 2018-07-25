@@ -11,6 +11,7 @@ public class AllCollabsReq {
     private String SenderFullName;
     private String OwnerFullName;
     private String Title;
+    private String OwnerID;
 
     public AllCollabsReq(){
 
@@ -18,7 +19,7 @@ public class AllCollabsReq {
 
 
     public AllCollabsReq(String pay, String duration, String bufferWait,
-                         String maxChanges, String dateOfRequest, String partner, String senderFullName, String title, String ownerFullName) {
+                         String maxChanges, String dateOfRequest, String partner, String senderFullName, String title, String ownerFullName, String ownerID) {
         this.Pay = pay;
         this.Duration = duration;
         this.BufferWait = bufferWait;
@@ -28,6 +29,15 @@ public class AllCollabsReq {
         this.SenderFullName = senderFullName;
         this.Title = title;
         this.OwnerFullName = ownerFullName;
+        this.OwnerID = ownerID;
+    }
+
+    public String getOwnerID() {
+        return OwnerID;
+    }
+
+    public void setOwnerID(String ownerID) {
+        OwnerID = ownerID;
     }
 
     public String getOwnerFullName() {

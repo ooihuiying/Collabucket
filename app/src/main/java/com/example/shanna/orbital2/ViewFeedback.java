@@ -30,7 +30,6 @@ public class ViewFeedback extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_feedback);
 
-
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         mRatingsList = (RecyclerView)findViewById(R.id.feedbackRecyclerView);

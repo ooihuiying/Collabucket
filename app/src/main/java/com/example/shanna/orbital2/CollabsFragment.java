@@ -87,9 +87,12 @@ public class CollabsFragment extends Fragment {
                 // Bind the Chat object to the ChatHolder
 
                 final String project_title = model.getTitle();
-                final String SenderID = model.getPartner();
+                final String PartnerID = model.getPartner();
                 final String SenderFullName = model.getSenderFullName();
                 final String OwnerFullName = model.getOwnerFullName();
+                final String OwnerID = model.getOwnerID();
+
+              //  Toast.makeText(getContext(), "id is " + OwnerID, Toast.LENGTH_SHORT).show();
 
                 holder.setTitle(model.getTitle());
                 holder.setOwner(OwnerFullName);
@@ -100,9 +103,10 @@ public class CollabsFragment extends Fragment {
                     public void onClick(View v) {
                         Intent profileIntent = new Intent(getContext(), CollabView.class);
                         profileIntent.putExtra("project_title", project_title);
-                        profileIntent.putExtra("SenderID", SenderID);
+                        profileIntent.putExtra("PartnerID", PartnerID);
                         profileIntent.putExtra("SenderName", SenderFullName);
                         profileIntent.putExtra("OwnerName", OwnerFullName);
+                        profileIntent.putExtra("OwnerID", OwnerID);
                         startActivity(profileIntent);
                     }
                 });

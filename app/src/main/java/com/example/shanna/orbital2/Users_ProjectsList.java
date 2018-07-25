@@ -97,7 +97,6 @@ public class Users_ProjectsList extends AppCompatActivity {
                     public void onClick(View v) {
                         // if owner is clicking on their own project, display OwnProjectDetails class
                         if (owner_id.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                            Toast.makeText(Users_ProjectsList.this, "This", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(Users_ProjectsList.this, OwnProjectDetails.class);
                             //pass user id of the project that the current user clicked
                             intent.putExtra("Owner", owner_id);

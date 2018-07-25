@@ -157,6 +157,7 @@ public class Collaborate extends AppCompatActivity {
                                         collabMapClone.put("SenderFullName", senderName);
                                         collabMapClone.put("OwnerFullName", ownerName);
                                         collabMapClone.put("Title", title);
+                                        collabMapClone.put("OwnerID", owner_id); //project owner id
 
                                         mDatabaseClone.setValue(collabMapClone);
 

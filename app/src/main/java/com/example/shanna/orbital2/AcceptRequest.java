@@ -64,7 +64,7 @@ public class AcceptRequest extends AppCompatActivity {
         final String bufferWait = getIntent().getStringExtra("bufferWait");
         final String maxChanges = getIntent().getStringExtra("maxChanges");
         final String requestDate = getIntent().getStringExtra("requestDate");
-        final String partnerID = getIntent().getStringExtra("partnerID");
+        final String partnerID = getIntent().getStringExtra("partnerID");  //requester
         final String senderFullName = getIntent().getStringExtra("senderFullName");
         final String project_title = getIntent().getStringExtra("projectTitle");
 
@@ -126,7 +126,7 @@ public class AcceptRequest extends AppCompatActivity {
 
                 //Get owner full name
                 DatabaseReference name = FirebaseDatabase.getInstance().getReference();
-                name.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                name.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()) //this is project owner id
                                             .addValueEventListener(new ValueEventListener() {
                                                 @Override
                                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -161,9 +161,10 @@ public class AcceptRequest extends AppCompatActivity {
                                 collabMap.put("BufferWait", bufferWait);
                                 collabMap.put("MaxChanges", maxChanges);
                                 collabMap.put("DateOfRequest", requestDate);
-                                collabMap.put("Partner", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                collabMap.put("Partner", partnerID);
                                 collabMap.put("SenderFullName", senderFullName);
                                 collabMap.put("Title", project_title);
+                                collabMap.put("OwnerID", owner_id);
 
                                 String ownerName = dataSnapshot.child("FullName").getValue().toString();
                                 collabMap.put("OwnerFullName", ownerName);
@@ -253,6 +254,16 @@ public class AcceptRequest extends AppCompatActivity {
                         .child("BufferWait");
                 mOwnerDatabase8.setValue(bufferWait);
 
+
+                ///////////////////////////////////////////////////////////////////////////////////////////////////
+                //Put this at the top so that the other user's device app doesn't pop up when the project
+                //owner accepts request.
+                Intent intent = new Intent(AcceptRequest.this, make_payment.class);
+                intent.putExtra("SenderID", partnerID);
+                intent.putExtra("project_title", project_title);
+                startActivity(intent);
+                finish();
+
                 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -273,6 +284,8 @@ public class AcceptRequest extends AppCompatActivity {
 
                 //Need to first obtain Projectsummary, qualifications, responsibilities, dateoflisting from project owner's branch
                 //Need to do datachange in order to obtain the values from the key
+
+
                 DatabaseReference mgetDatabase = FirebaseDatabase.getInstance().getReference();
 
                mgetDatabase.child("Users").child(owner_id)
@@ -320,12 +333,7 @@ public class AcceptRequest extends AppCompatActivity {
                         });
 
 
-                ///////////////////////////////////////////////////////////////////////////////////////////////////
-                Intent intent = new Intent(AcceptRequest.this, make_payment.class);
-                intent.putExtra("SenderID", partnerID);
-                intent.putExtra("project_title", project_title);
-                startActivity(intent);
-                //finish();
+
 
             }
         });
