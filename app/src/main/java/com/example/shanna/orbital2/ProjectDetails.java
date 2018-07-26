@@ -67,6 +67,15 @@ public class ProjectDetails extends AppCompatActivity {
 
 
         // Below code is to retrieve the database information and display project's details
+
+
+        /*
+        mDatabase.child("ProjectsListed")
+                .child(project_owner_id)
+                .child(project_title)
+                .addValueEventListener(new ValueEventListener() {
+
+                */
         mDatabase.child("Users")
                 .child(project_owner_id)
                 .child("Projects")
@@ -96,7 +105,7 @@ public class ProjectDetails extends AppCompatActivity {
             public void onClick(View view) {
                 //first set the value inside the text boxes to contain information that was set previously by the project owner
                 mDatabase.child("Users").child(project_owner_id).child("Projects").child(project_title).addValueEventListener(new ValueEventListener() {
-
+              //  mDatabase.child("ProjectsListed").child(project_owner_id).child(project_title).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -116,6 +125,7 @@ public class ProjectDetails extends AppCompatActivity {
                             intent.putExtra("Owner", project_owner_id);
                             intent.putExtra("Title", dataSnapshot.child("Title").getValue().toString());
                             startActivity(intent);
+                           // finish();
                         }
                     }
 

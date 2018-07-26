@@ -68,12 +68,14 @@ public class AcceptRequest extends AppCompatActivity {
         final String senderFullName = getIntent().getStringExtra("senderFullName");
         final String project_title = getIntent().getStringExtra("projectTitle");
 
+
        // Toast.makeText(AcceptRequest.this, "sender id is ->" + senderID, Toast.LENGTH_SHORT).show();
         mDatabase = FirebaseDatabase.getInstance().getReference();
         // display agreement details by reading from the AllCollabsReq branch
         mDatabase.child("AllCollabsReq").child(owner_id)
                 .child(project_title + partnerID)
-                .addValueEventListener(new ValueEventListener() {
+                //.addValueEventListener(new ValueEventListener() {
+                .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -83,6 +85,8 @@ public class AcceptRequest extends AppCompatActivity {
                         mMaxChanges.setText(dataSnapshot.child("MaxChanges").getValue().toString());
                         mDateOfRequest.setText(dataSnapshot.child("DateOfRequest").getValue().toString());
                         mTitle.setText(dataSnapshot.child("Title").getValue().toString());
+
+                        mDatabase.child("AllCollabsReq").child(owner_id).child(project_title+partnerID).removeEventListener(this);
 
                     }
 
@@ -107,7 +111,6 @@ public class AcceptRequest extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-
                 //1) Make a new branch under successfulCollaborations -> Same level as Users.
                 //partner id is project requester id
                 mDatabaseClone = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborationsNotifications").child(partnerID)
@@ -125,7 +128,7 @@ public class AcceptRequest extends AppCompatActivity {
                 collabMapClone.put("Title", project_title);
 
                 //Get owner full name
-                DatabaseReference name = FirebaseDatabase.getInstance().getReference();
+                final DatabaseReference name = FirebaseDatabase.getInstance().getReference();
                 name.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()) //this is project owner id
                                             .addValueEventListener(new ValueEventListener() {
                                                 @Override
@@ -133,6 +136,7 @@ public class AcceptRequest extends AppCompatActivity {
                                                     String ownerName = dataSnapshot.child("FullName").getValue().toString();
                                                     collabMapClone.put("OwnerFullName", ownerName);
                                                     mDatabaseClone.setValue(collabMapClone);
+                                                    name.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).removeEventListener(this);
                                                 }
 
                                                 @Override
@@ -141,130 +145,82 @@ public class AcceptRequest extends AppCompatActivity {
                                                 }
                                             });
 
-                ///1b)update the branch called SuccessfulCollaboration -> Same level as Users//// Updated for both owner and partner so that collab fragment can be seen for both users
+
+
+                ///1b)update the branch called SuccessfulCollaboration -> Same level as Users
+                /// We have successfulcollaboration-> Owner and succesfulcollaborations-> partner
+                /// so that collab fragment can be seen for both users
 
                 //Get owner full name
-                DatabaseReference name2 = FirebaseDatabase.getInstance().getReference();
+                final DatabaseReference name2 = FirebaseDatabase.getInstance().getReference();
                 name2.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                        .addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        //.addValueEventListener(new ValueEventListener() {
+                            .addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                                DatabaseReference mDatabaseCollabOwner = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(owner_id)
+                                    final DatabaseReference mDatabaseCollabOwner = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(owner_id)
+                                        .child(project_title+owner_id);
+                                    final DatabaseReference mDatabaseCollabPartner = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(partnerID)
                                         .child(project_title+partnerID);
-                                DatabaseReference mDatabaseCollabPartner = FirebaseDatabase.getInstance().getReference().child("SuccessfulCollaborations").child(partnerID)
-                                        .child(project_title+partnerID);
 
-                                final HashMap<String, Object> collabMap = new HashMap<>();
-                                collabMap.put("Pay", pay);
-                                collabMap.put("Duration", duration);
-                                collabMap.put("BufferWait", bufferWait);
-                                collabMap.put("MaxChanges", maxChanges);
-                                collabMap.put("DateOfRequest", requestDate);
-                                collabMap.put("Partner", partnerID);
-                                collabMap.put("SenderFullName", senderFullName);
-                                collabMap.put("Title", project_title);
-                                collabMap.put("OwnerID", owner_id);
+                                    String ownerFullName = dataSnapshot.child("FullName").getValue().toString();
 
-                                String ownerName = dataSnapshot.child("FullName").getValue().toString();
-                                collabMap.put("OwnerFullName", ownerName);
+                                    final HashMap<String, Object> collabMap = new HashMap<>();
+                                    collabMap.put("Pay", pay);
+                                    collabMap.put("Duration", duration);
+                                    collabMap.put("BufferWait", bufferWait);
+                                    collabMap.put("MaxChanges", maxChanges);
+                                    collabMap.put("DateOfRequest", requestDate);
+                                    collabMap.put("Partner", partnerID);
+                                    collabMap.put("SenderFullName", senderFullName);
+                                    collabMap.put("Title", project_title);
+                                    collabMap.put("OwnerID", owner_id);
+                                    collabMap.put("ProjectStatus", "closed");
+                                    collabMap.put("OwnerFullName", ownerFullName);
 
-                                mDatabaseCollabOwner.setValue( collabMap);
-                                mDatabaseCollabPartner.setValue( collabMap);
-                            }
+                                    //get project summary, responsibilities, qualifications, date of listing
+                                    final DatabaseReference mmm = FirebaseDatabase.getInstance().getReference();
+                                    mmm.child("Users").child(owner_id)
+                                        .child("Projects")
+                                        .child(project_title)
+                                        .addValueEventListener(new ValueEventListener() {
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                            }
-                        });
+                                            String projectSummary = dataSnapshot.child("ProjectSummary").getValue().toString();
+                                            String projectQualifications = dataSnapshot.child("ProjectQualifications").getValue().toString();
+                                            String projectResponsibilities = dataSnapshot.child("ProjectResponsibilities").getValue().toString();
+                                            String projectDateOfListing = dataSnapshot.child("DateOfListing").getValue().toString();
 
+                                            collabMap.put("ProjectSummary", projectSummary);
+                                            collabMap.put("ProjectResponsibilities", projectResponsibilities);
+                                            collabMap.put("ProjectQualifications", projectQualifications);
+                                            collabMap.put("DateOfListing", projectDateOfListing);
 
-                ////////////////////////////////////////////////////////////////////////////////////////
-                //2) Update projects collaboration details for the project owner.
-
-                //I think cannot do hashmap for below because some of the fields are already present, eg projectsummary
-                //Need to point out the fields directly. Because if use hashmap, then some fields like project qualifications/summary will get
-                //erased
-                //Note that the project owner can only accept one freelancer request, otherwise only the latest user's data who got accepted will
-                //be stored
-
-                DatabaseReference mOwnerDatabase1 = FirebaseDatabase.getInstance().getReference().child("Users")
-                                .child(owner_id)
-                                .child("Projects")
-                                .child(project_title) //project title
-                            //    .child(partnerID)
-                                .child("Pay");
-
-                mOwnerDatabase1.setValue(pay);
-
-                DatabaseReference mOwnerDatabase2 = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(owner_id)
-                        .child("Projects")
-                        .child(project_title) //project title
-                      //  .child(partnerID)
-                        .child("DateOfRequest");
-                mOwnerDatabase2.setValue(requestDate);
-
-                DatabaseReference mOwnerDatabase3 = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(owner_id)
-                        .child("Projects")
-                        .child(project_title) //project title
-                        .child("Duration");
-                mOwnerDatabase3.setValue(duration);
-
-                DatabaseReference mOwnerDatabase4 = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(owner_id)
-                        .child("Projects")
-                        .child(project_title) //project title
-                    //    .child(partnerID)
-                        .child("MaxChanges");
-                mOwnerDatabase4.setValue(maxChanges);
-
-                DatabaseReference mOwnerDatabase5 = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(owner_id)
-                        .child("Projects")
-                        .child(project_title) //project title
-                     //   .child(partnerID)
-                        .child("Partner");
-                mOwnerDatabase5.setValue(partnerID);
-
-                DatabaseReference mOwnerDatabase6 = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(owner_id)
-                        .child("Projects")
-                        .child(project_title) //project title
-                      //  .child(partnerID)
-                        .child("Pay");
-                mOwnerDatabase6.setValue(pay);
-
-                DatabaseReference mOwnerDatabase7 = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(owner_id)
-                        .child("Projects")
-                        .child(project_title) //project title
-                    //    .child(partnerID)
-                        .child("ProjectStatus");
-                mOwnerDatabase7.setValue("Closed.");
+                                            mDatabaseCollabOwner.setValue(collabMap);
+                                            mDatabaseCollabPartner.setValue(collabMap);
 
 
-                DatabaseReference mOwnerDatabase8 = FirebaseDatabase.getInstance().getReference().child("Users")
-                        .child(owner_id)
-                        .child("Projects")
-                        .child(project_title) //project title
-                        //    .child(partnerID)
-                        .child("BufferWait");
-                mOwnerDatabase8.setValue(bufferWait);
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError databaseError) {}
 
 
-                ///////////////////////////////////////////////////////////////////////////////////////////////////
-                //Put this at the top so that the other user's device app doesn't pop up when the project
-                //owner accepts request.
-                Intent intent = new Intent(AcceptRequest.this, make_payment.class);
-                intent.putExtra("SenderID", partnerID);
-                intent.putExtra("project_title", project_title);
-                startActivity(intent);
-                finish();
+                                    }); //end of inner datachange for project summary, responsibilities, qualifications, date of listing
 
-                ///////////////////////////////////////////////////////////////////////////////////////////////////
+                                 } //end of outer datachange for project owner's full name
+
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
+
+
 
 
                 //3) DOESN"T WORK -> THE APP CRASHES
@@ -285,6 +241,8 @@ public class AcceptRequest extends AppCompatActivity {
                 //Need to first obtain Projectsummary, qualifications, responsibilities, dateoflisting from project owner's branch
                 //Need to do datachange in order to obtain the values from the key
 
+                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
                 DatabaseReference mgetDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -292,6 +250,7 @@ public class AcceptRequest extends AppCompatActivity {
                         .child("Projects")
                         .child(project_title)
                         .addValueEventListener(new ValueEventListener() {
+
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -300,11 +259,17 @@ public class AcceptRequest extends AppCompatActivity {
                                 String projectResponsibilities = dataSnapshot.child("ProjectResponsibilities").getValue().toString();
                                 String projectDateOfListing = dataSnapshot.child("DateOfListing").getValue().toString();
 
+
                                 mRequesterDatabase = FirebaseDatabase.getInstance().getReference().child("Users")
                                         .child(partnerID)
                                         .child("Projects")
                                         .child(project_title);
 
+                                 /*+++++++++++++++++++++
+                                mRequesterDatabase = FirebaseDatabase.getInstance().getReference().child("ProjectsListed")
+                                        .child(partnerID)
+                                        .child(project_title);
+                                   +++++++++++++++++++++++++*/
 
                                 final HashMap<String, Object> collabMapRequester = new HashMap<>();
 
@@ -325,6 +290,36 @@ public class AcceptRequest extends AppCompatActivity {
                                 mRequesterDatabase.setValue(collabMapRequester);
 
 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                // update projects for owner -> Not done. Commented line 280 because the updating of owner's
+                                // project willl lead to the freelancer emulator to showing an empty Collab form.
+                                //Not sure why...just take note that the project owner's project branch is not updated
+                                //Only freelancer side is
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                           //    DatabaseReference ownerDatabase = FirebaseDatabase.getInstance().getReference()
+                           //             .child("Users")
+                            //            .child(owner_id)
+                            //            .child("Projects")
+                            //            .child(project_title);
+
+
+
+                               // ownerDatabase.setValue(collabMapRequester);
+
+
+/*
+                                DatabaseReference ownerDatabase = FirebaseDatabase.getInstance().getReference()
+                                        .child("ProjectsListed")
+                                        .child(owner_id)
+                                        .child(project_title);
+
+                                ownerDatabase.setValue(collabMapRequester);
+*/
+
+
                             }
 
                             @Override
@@ -332,11 +327,15 @@ public class AcceptRequest extends AppCompatActivity {
                             }
                         });
 
+               Intent intent = new Intent(AcceptRequest.this, make_payment.class);
+               intent.putExtra("SenderID", partnerID);
+               intent.putExtra("project_title", project_title);
 
+               startActivity(intent);
+               finish();
 
-
-            }
-        });
+            } //end onclick
+        }); //end button
 
         //Update the rejected collabs
         //Then lead user to the main page
@@ -365,10 +364,6 @@ public class AcceptRequest extends AppCompatActivity {
 
             }
         });
-
-
-
-
 
     }
 

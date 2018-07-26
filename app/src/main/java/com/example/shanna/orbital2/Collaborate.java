@@ -36,7 +36,7 @@ public class Collaborate extends AppCompatActivity {
     private DatabaseReference mOwnerFullName;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate (Bundle savedInstanceState) {
 
 
         super.onCreate(savedInstanceState);
@@ -54,6 +54,8 @@ public class Collaborate extends AppCompatActivity {
         final String title = getIntent().getStringExtra("Title");
 
         auth = FirebaseAuth.getInstance();
+
+        Toast.makeText(Collaborate.this, auth.getCurrentUser().getUid(), Toast.LENGTH_LONG).show();
 
         // click to complete collaboration
         mBtnCollaborate.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +114,6 @@ public class Collaborate extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
 
-
                         //Update AllCollabsRequest branch -> Same level as Users
                         mDatabaseClone = FirebaseDatabase.getInstance().getReference()
                                 .child("AllCollabsReq")  //Another branch of the same level as Users
@@ -138,7 +139,8 @@ public class Collaborate extends AppCompatActivity {
 
                                 ////////Get the value of the sender's name -> Only onDataChange method can obtain value of key from firebase
                                 //We want sender's full name so that we can display on requestFragment for project owner side
-                                mSenderFullName.addValueEventListener(new ValueEventListener() {
+                             //  mSenderFullName.addValueEventListener(new ValueEventListener() {
+                                    mSenderFullName.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -161,10 +163,17 @@ public class Collaborate extends AppCompatActivity {
 
                                         mDatabaseClone.setValue(collabMapClone);
 
-                                        Toast.makeText(Collaborate.this, "Request for collaboration sent!", Toast.LENGTH_LONG).show();
-                                        Intent here = new Intent(Collaborate.this, MainActivity.class);
-                                        startActivity(here);
-                                        finish();
+                                        mSenderFullName.removeEventListener(this);
+                                        mDatabaseClone.removeEventListener(this);
+
+
+                                       // Toast.makeText(Collaborate.this, "Request for collaboration sent!", Toast.LENGTH_LONG).show();
+                                       // Intent here = new Intent(Collaborate.this, MainActivity.class);
+                                      //  startActivity(here);
+                                      //  finish();
+
+
+
 
                                     }
 
@@ -173,6 +182,7 @@ public class Collaborate extends AppCompatActivity {
 
                                     }
                                 });
+                               // mSenderFullName.removeEventListener(myEventListener);
                             }
 
                             @Override
@@ -184,6 +194,11 @@ public class Collaborate extends AppCompatActivity {
 
                     }
                 }); //update notification branch
+
+                Toast.makeText(Collaborate.this, "Request for collaboration sent!", Toast.LENGTH_LONG).show();
+                Intent here = new Intent(Collaborate.this, MainActivity.class);
+                startActivity(here);
+                finish();
             }
         });
 

@@ -66,11 +66,11 @@ public class FeedbackForm extends AppCompatActivity {
         mBtnDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 FirebaseDatabase.getInstance().getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
-                     @Override
+                FirebaseDatabase.getInstance().getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                         final String feedback = mFeedback.getText().toString().trim();
-                         final int rating = mRating.getNumStars();
+                        final String feedback = mFeedback.getText().toString().trim();
+                        final Float rating = mRating.getRating();
 
                         final String userLeavingFeedback = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("FullName").getValue().toString();
 
@@ -78,11 +78,15 @@ public class FeedbackForm extends AppCompatActivity {
                         feedbackMap.put("Rating", rating);
                         feedbackMap.put("Comments", feedback);
 
-                         DatabaseReference thisdata = FirebaseDatabase.getInstance().getReference().child("Users").child(other_user).child("Feedback").child(userLeavingFeedback);
-                         thisdata.setValue(feedbackMap);
+                        DatabaseReference thisData = FirebaseDatabase.getInstance().getReference().child("Users").child(other_user).child("Feedback").child(userLeavingFeedback);
+                        thisData.setValue(feedbackMap);
 
-                       // FirebaseDatabase.getInstance().getReference().child("Users").child(other_user).child("Feedback").child(userLeavingFeedback).setValue(feedbackMap);
+                        // FirebaseDatabase.getInstance().getReference().child("Users").child(other_user).child("Feedback").child(userLeavingFeedback).setValue(feedbackMap);
                         Toast.makeText(FeedbackForm.this, "Thank you for leaving a feedback! :)", Toast.LENGTH_LONG).show();
+                         Intent intent = new Intent(FeedbackForm.this, MainActivity.class);
+
+                         startActivity(intent);
+                         finish();
 
                     }
 
@@ -91,7 +95,7 @@ public class FeedbackForm extends AppCompatActivity {
 
                     }
                 });
-                finish();
+
             }
         });
     }

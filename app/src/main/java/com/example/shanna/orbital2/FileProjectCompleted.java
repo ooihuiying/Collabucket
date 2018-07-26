@@ -61,15 +61,25 @@ public class FileProjectCompleted extends AppCompatActivity {
 
                 DatabaseReference mgetDatabase = FirebaseDatabase.getInstance().getReference();
 
+
+               /* mgetDatabase.child("ProjectsListed").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                        .child(project_title)*/
+
+               /*
                 mgetDatabase.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .child("Projects")
                         .child(project_title)
+
+                        */
+               mgetDatabase.child("SuccessfulCollaborations")
+                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                            .child(project_title+FirebaseAuth.getInstance().getCurrentUser().getUid())
                         .addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                                 String partner_id = dataSnapshot.child("Partner").getValue().toString();
-
+                                Toast.makeText(FileProjectCompleted.this, "Partner id is " + partner_id, Toast.LENGTH_SHORT).show();
                                 //after obtaining partner's id, then create a new branch called CompletedProjects -> Same level as Users
                                 database = FirebaseDatabase.getInstance().getReference()
                                         .child("CompletedProjects")
@@ -85,15 +95,9 @@ public class FileProjectCompleted extends AppCompatActivity {
 
                                 database.setValue(map);
 
-                                ////Now need to update project status for owner
-                                DatabaseReference updateOwnerProjectStatus =  FirebaseDatabase.getInstance().getReference()
-                                        .child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .child("Projects")
-                                        .child(project_title)
-                                        .child("ProjectStatus");
-                                updateOwnerProjectStatus.setValue("Completed");
-
                                 ////Now need to update project status for partner/freelancer
+       ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                //This doesn't get updated even though the code below is to update freelancer's project details.
                                 DatabaseReference updatePartnerProjectStatus =  FirebaseDatabase.getInstance().getReference()
                                         .child("Users").child(partner_id)
                                         .child("Projects")
@@ -101,6 +105,49 @@ public class FileProjectCompleted extends AppCompatActivity {
                                         .child("ProjectStatus");
                                 updatePartnerProjectStatus.setValue("Completed");
 
+                                ////Now need to update project status for owner
+
+                                DatabaseReference updateOwnerProjectStatus =  FirebaseDatabase.getInstance().getReference()
+                                        .child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .child("Projects")
+                                        .child(project_title)
+                                        .child("ProjectStatus");
+                                updateOwnerProjectStatus.setValue("Completed");
+                                //////////////////////////////////////////////////////////////////////////////v//////////////////////
+
+                                //Update for successful collaboration -> Try
+                                DatabaseReference upup = FirebaseDatabase.getInstance().getReference()
+                                            .child("SuccessfulCollaborations")
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .child(project_title+FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .child("ProjectStatus");
+                                upup.setValue("Completed");
+
+
+                                //Update for successful collaboration -> Try
+                                DatabaseReference upup2 = FirebaseDatabase.getInstance().getReference()
+                                            .child("SuccessfulCollaborations")
+                                            .child(partner_id)
+                                            .child(project_title+partner_id)
+                                            .child("ProjectStatus");
+                                upup2.setValue("Completed");
+
+
+                                /*
+                                DatabaseReference updateOwnerProjectStatus =  FirebaseDatabase.getInstance().getReference()
+                                        .child("ProjectsListed").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .child(project_title)
+                                        .child("ProjectStatus");
+                                updateOwnerProjectStatus.setValue("Completed");
+
+
+                                ////Now need to update project status for partner/freelancer
+                                DatabaseReference updatePartnerProjectStatus =  FirebaseDatabase.getInstance().getReference()
+                                        .child("ProjectsListed").child(partner_id)
+                                        .child(project_title)
+                                        .child("ProjectStatus");
+                                updatePartnerProjectStatus.setValue("Completed");
+                                 */
                                 ///////////////////////////////////////////////////////////////////////////////////////////////////
                                 Toast.makeText(FileProjectCompleted.this, "Congratulations! Project is successfully completed. :)", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(FileProjectCompleted.this, FeedbackForm.class);

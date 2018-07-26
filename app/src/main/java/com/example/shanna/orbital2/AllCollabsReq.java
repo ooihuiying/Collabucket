@@ -12,14 +12,21 @@ public class AllCollabsReq {
     private String OwnerFullName;
     private String Title;
     private String OwnerID;
-
+    /*
+    private String DateofListing;
+    private String ProjectQualifications;
+    private String ProjectResponsibilities;
+    private String ProjectStatus;
+    private String ProjectSummary;
+    */
     public AllCollabsReq(){
 
     }
 
 
     public AllCollabsReq(String pay, String duration, String bufferWait,
-                         String maxChanges, String dateOfRequest, String partner, String senderFullName, String title, String ownerFullName, String ownerID) {
+                         String maxChanges, String dateOfRequest, String partner, String senderFullName, String title, String ownerFullName, String ownerID){
+                        // ,String dateofListing, String qualifications, String responsibilities, String status, String summary) {
         this.Pay = pay;
         this.Duration = duration;
         this.BufferWait = bufferWait;
@@ -30,7 +37,15 @@ public class AllCollabsReq {
         this.Title = title;
         this.OwnerFullName = ownerFullName;
         this.OwnerID = ownerID;
+        /*
+        this.DateofListing = dateofListing;
+        this.ProjectQualifications = qualifications;
+        this.ProjectResponsibilities = responsibilities;
+        this.ProjectStatus = status;
+        this.ProjectSummary = summary;
+        */
     }
+
 
     public String getOwnerID() {
         return OwnerID;

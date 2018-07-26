@@ -27,5 +27,5 @@ public class Feedback {
         return Comments;
     }
 
-    public void setDescription(String comments) { this.Comments = comments; }
+    public void setComments(String comments) { this.Comments = comments; }
 }

@@ -62,10 +62,17 @@ public class OwnProjectDetails extends AppCompatActivity {
 
 
         // Below code is to retrieve the database information and display project's details
+
         mDatabase.child("Users")
                 .child(project_owner_id)
                 .child("Projects")
                 .child(project_title).addValueEventListener(new ValueEventListener() {
+
+               /*
+        mDatabase.child("ProjectsListed")
+                .child(project_owner_id)
+                .child(project_title).addValueEventListener(new ValueEventListener() {
+                */
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 mTextViewTitle.setText(dataSnapshot.child("Title").getValue().toString());
@@ -89,14 +96,22 @@ public class OwnProjectDetails extends AppCompatActivity {
         //when user view project owner's profile, bring user to the profile
         mBtnComplete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+
                 mDatabase.child("Users")
                         .child(project_owner_id)
                         .child("Projects")
                         .child(project_title).addValueEventListener(new ValueEventListener() {
+
+
+                /*++++++++++++++++++++++++++
+                mDatabase.child("ProjectsListed")
+                        .child(project_owner_id)
+                        .child(project_title).addValueEventListener(new ValueEventListener() {
+                        +++++++++++++++++++++++++++++++++++++++++++++*/
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshotCheck) {
                         if (dataSnapshotCheck.child("ProjectStatus").getValue().toString().equals("Completed")) {
-                            Toast.makeText(OwnProjectDetails.this, "Project not valid for completion.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(OwnProjectDetails.this, "Project is already registered as completed.", Toast.LENGTH_LONG).show();
                         } else {
                             Intent intent = new Intent(OwnProjectDetails.this, FileProjectCompleted.class);
                             intent.putExtra("project_title", project_title);

@@ -72,8 +72,12 @@ public class SearchBar extends AppCompatActivity {
 
 
 
+
+      //  Below doesn't work because at AcceptRequest.java, the project branch for project owner is not updated....
+      //  So change to refering to projectsListed branch
         // list ALL projects when search bar is empty
         FirebaseDatabase.getInstance().getReference().child("Users")
+
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshotAll) {

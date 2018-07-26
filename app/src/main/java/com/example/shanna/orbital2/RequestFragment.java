@@ -104,7 +104,7 @@ public class RequestFragment extends Fragment {
                 final String senderFullName = model.getSenderFullName();
                 final String project_title = model.getTitle();
 
-                //Toast.makeText(getContext(),"For debugging title is "+ project_title, Toast.LENGTH_LONG).show();
+              //  Toast.makeText(getContext(),"For debugging, partner id is"+ partner, Toast.LENGTH_LONG).show();
 
                 holder.mView.setOnClickListener(new View.OnClickListener(){
                     @Override

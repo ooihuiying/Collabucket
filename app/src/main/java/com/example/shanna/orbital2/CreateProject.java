@@ -1,5 +1,6 @@
 package com.example.shanna.orbital2;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -67,6 +68,7 @@ public class CreateProject extends AppCompatActivity {
                 String current_uid = mCurrentUser.getUid();
                 mUserDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(current_uid).child("Projects").child(title);
 
+
                 // check if title is empty
                 if (TextUtils.isEmpty(title)) {
                     Toast.makeText(CreateProject.this, "Enter project title", Toast.LENGTH_SHORT).show();
@@ -133,6 +135,7 @@ public class CreateProject extends AppCompatActivity {
                 projectMap.put("ProjectStatus", projectStatus);
 
                 mUserDatabase.setValue(projectMap);
+
 
                 Toast.makeText(CreateProject.this, "Project successfully listed!", Toast.LENGTH_LONG).show();
                 finish();

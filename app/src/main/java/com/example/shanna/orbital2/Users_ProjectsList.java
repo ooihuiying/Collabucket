@@ -46,6 +46,13 @@ public class Users_ProjectsList extends AppCompatActivity {
 
         mUsersDatabase = FirebaseDatabase.getInstance().getReference().child("Users").child(user_id).child("Projects");
 
+
+        //+++++++++++++++++++
+        DatabaseReference data = FirebaseDatabase.getInstance().getReference().child("ProjectsListed").child(user_id);
+
+        //+++++++++++++++++++++++++++++++++++++++
+
+
         mUserProjectList = (RecyclerView)findViewById(R.id.projects_list);
         mUserProjectList.setHasFixedSize(true);
         mUserProjectList.setLayoutManager(new LinearLayoutManager(this));
@@ -59,12 +66,21 @@ public class Users_ProjectsList extends AppCompatActivity {
 
     }
     public void startListening(){
+
+
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
                 .child("Users")
                 .child(userId)
                 .child("Projects");
 
+        //+++++++++++++++++++++++++++++++++++
+        /*
+        Query query = FirebaseDatabase.getInstance()
+                                    .getReference()
+                                    .child("ProjectsListed")
+                                    .child(userId);
+        //+++++++++++++++++++++++++++++++++++++*/
         FirebaseRecyclerOptions<Projects> options =
                 new FirebaseRecyclerOptions.Builder<Projects>()
                         .setQuery(query, Projects.class)

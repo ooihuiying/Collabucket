@@ -91,7 +91,13 @@ public class CollabView extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
         //first set the value inside the text boxes to contain information that was set previously
-        mDatabase.child("Users").child(partner_id).child("Projects").child(project_title)
+
+        /* Commented off because the projectStatus for the freelancer is not updated at FileProjectCompleted.java
+        //Problem not sure how to solve, but it seems we can't modify data for two users??
+        //Maybe this problem is related to the update project details on owner's side.
+
+        mDatabase.child("Users").child(partner_id).child("Projects").child(project_title)*/
+        mDatabase.child("SuccessfulCollaborations").child(current_id).child(project_title+current_id)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

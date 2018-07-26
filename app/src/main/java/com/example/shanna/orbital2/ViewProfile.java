@@ -123,7 +123,7 @@ public class ViewProfile extends AppCompatActivity {
         mViewProjects.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //by right should lead to Chat.java. But currently Chat.java not done, so lead to Main
+
                 Intent intent = new Intent(ViewProfile.this, Users_ProjectsList.class);
                 intent.putExtra("user_id", user_id);
                 startActivity(intent);
