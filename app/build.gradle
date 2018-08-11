@@ -68,6 +68,10 @@ dependencies {
 
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
+    //paypal
+    implementation 'com.paypal.sdk:paypal-android-sdk:2.14.2'
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'

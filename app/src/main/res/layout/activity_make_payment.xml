@@ -142,7 +142,8 @@
                 android:background="	#a54343"
                 android:text="Pay now"
                 tools:layout_editor_absoluteX="0dp"
-                tools:layout_editor_absoluteY="496dp" />
+                tools:layout_editor_absoluteY="496dp"/>
+
         </LinearLayout>
     </ScrollView>
 
